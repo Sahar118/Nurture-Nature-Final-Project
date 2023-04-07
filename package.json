@@ -1,0 +1,21 @@
+{
+  "name": "nurture-nature-final-project",
+  "version": "1.0.0",
+  "description": "This project raises people's awareness of the issue of environmental quality, by making available relevant information on the issue, and encouraging people to initiate and participate in events to protect the environment.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sahar Bader",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.0.3",
+    "nodemon": "^2.0.22",
+    "react-dom": "^18.2.0"
+  }
+}
