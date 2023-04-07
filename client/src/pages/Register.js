@@ -67,13 +67,16 @@
 
 // export default Register;
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Form, message } from "antd";
 import Button from "../components/Button.js";
 import { Link, useNavigate } from "react-router-dom";
 import { RegisterUser } from "../apicalls/users.js";
+import { useDispatch } from "react-redux";
+import { HideLoading, ShowLoading } from "../redux/loaderSlice.js";
 
 function Register() {
+    const dispatch = useDispatch();
     const navigate = useNavigate()
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -81,7 +84,9 @@ function Register() {
 
     const onFinish = async (values) => {
         try {
+            dispatch(ShowLoading());
             const response = await RegisterUser(values);
+            dispatch(HideLoading());
             if (response.success) {
                 message.success(response.message);
                 navigate("/login")
@@ -89,9 +94,15 @@ function Register() {
                 message.error(response.message);
             }
         } catch (error) {
+            dispatch(HideLoading());
             message.error(error.message);
         }
     };
+    useEffect(() => {
+        if (localStorage.getItem("token")) {
+            navigate("/");
+        }
+    }, []);
 
     return (
         <div className="p column center">

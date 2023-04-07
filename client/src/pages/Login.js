@@ -4,6 +4,8 @@ import { Form, message } from "antd";
 import Button from "../components/Button.js";
 import { Link, useNavigate } from "react-router-dom";
 import { LoginUser } from "../apicalls/users.js";
+import { useDispatch } from "react-redux";
+import { HideLoading, ShowLoading } from "../redux/loaderSlice.js";
 // import { RegisterUser } from "../../apicalls/users";
 // import { useNavigate } from "react-router-dom";
 // import { useDispatch } from "react-redux";
@@ -11,9 +13,12 @@ import { LoginUser } from "../apicalls/users.js";
 
 function Login() {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const onFinish = async (values) => {
         try {
+            dispatch(ShowLoading());
             const response = await LoginUser(values);
+            dispatch(HideLoading());
             if (response.success) {
                 message.success(response.success)
                 localStorage.setItem("token", response.data)
@@ -23,8 +28,8 @@ function Login() {
                 message.error(response.message)
             }
         } catch (error) {
+            dispatch(HideLoading());
             message.error(error.message)
-
         }
     }
     useEffect(() => {
