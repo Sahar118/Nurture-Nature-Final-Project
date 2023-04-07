@@ -306,7 +306,7 @@ thead th {
   border-top-color: red; */
   /* border-radius: 50%; */
   background: url(../assest/childrens\ \(2\).jpeg) no-repeat center center/cover;
-  animation: loader-anim 4s linear infinite;
+  animation: loader-anim 3s linear infinite;
 } 
 
 
