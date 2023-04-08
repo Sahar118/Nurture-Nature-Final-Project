@@ -6,6 +6,9 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { SetUser } from "../redux/usersSlice";
 import { HideLoading, ShowLoading } from "../redux/loaderSlice";
+import { AiOutlineUser } from "react-icons/ai";
+import { GrLogout } from "react-icons/gr";
+import Navbar from "./Navbar";
 
 function ProtectedRoute({ children }) {
     const { user } = useSelector((state) => state.users);
@@ -49,9 +52,9 @@ function ProtectedRoute({ children }) {
                             onClick={() => navigate("/")}
                         >Nurture Nature</h1>
                     </div>
-
+                    <Navbar />
                     <div className="bg-white p-1 flex gap-1">
-                        <i className="ri-shield-user-line text-primary"></i>
+                        {/* <i className="ri-shield-user-line text-primary"></i> */}<AiOutlineUser />
                         <h1
                             className="text-sm underline"
                             onClick={() => {
@@ -62,18 +65,19 @@ function ProtectedRoute({ children }) {
                                 }
                             }}
                         >
+
                             {user.name}
                         </h1>
-
-                        <i
-                            className="ri-logout-box-r-line ml-2"
+                        <GrLogout className="pointer"
                             onClick={() => {
                                 localStorage.removeItem("token");
                                 navigate("/login");
-                            }}
-                        ></i>
+                            }} />
+
+
                     </div>
                 </div>
+
                 <div className="content mt-1 p-1">{children}</div>
             </div>
         )
