@@ -20,3 +20,13 @@ export const GetAllEvent = async (payload) => {
         return error.message;
     }
 }
+
+//  update an event
+export const updateEvent = async (payload) => {
+    try {
+        const response = await axiosInstance.post("/api/events/update-event", payload);
+        return response.data;
+    } catch (error) {
+        return error.message;
+    }
+}

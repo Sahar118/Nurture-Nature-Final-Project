@@ -3,14 +3,21 @@ import { Col, Form, Modal, Row, message } from 'antd'
 import Button from '../../components/Button'
 import { useDispatch } from 'react-redux'
 import { HideLoading, ShowLoading } from '../../redux/loaderSlice'
-import { AddEvent } from '../../apicalls/events'
+import { AddEvent, updateEvent } from '../../apicalls/events'
+import moment from 'moment'
 const EventsForm = ({
     showEventsFromModal,
     setShowEventsFromModal,
     selectEvent,
     setSelectEvent,
-    formType
+    formType,
+    getData
 }) => {
+    if (selectEvent) {
+        selectEvent.date = moment(selectEvent.date).format("YYYY-MM-DD")
+        selectEvent.time = moment(selectEvent.time).format("HH:MM")
+
+    }
     const dispatch = useDispatch()
     const onFinish = async (values) => {
         try {
@@ -19,10 +26,14 @@ const EventsForm = ({
             if (formType === 'add') {
                 response = await AddEvent(values)
             } else {
-
+                response = await updateEvent({
+                    ...values,
+                    eventId: selectEvent._id
+                })
             }
 
             if (response.success) {
+                getData()
                 message.success(response.message);
                 setShowEventsFromModal(false);
             } else {
@@ -39,13 +50,17 @@ const EventsForm = ({
         <Modal
             title={formType === "add" ? "Add Event" : "Edit Event"}
             open={showEventsFromModal}
-            onCancel={() => setShowEventsFromModal(false)}
+            onCancel={() => {
+                setShowEventsFromModal(false)
+                setSelectEvent(null)
+            }}
             footer={null}
             width={900}
         >
             <Form
                 layout='vertical'
                 onFinish={onFinish}
+                initialValues={selectEvent}
             >
                 <Row gutter={20}>
                     <Col span={24}>
@@ -103,13 +118,16 @@ const EventsForm = ({
                 <Button title='Cancel'
                     variant='outline'
                     type='button'
-                    onClick={() => setShowEventsFromModal(false)}
+                    onClick={() => {
+                        setShowEventsFromModal(false)
+                        setSelectEvent(null)
+                    }}
                 />
                 <Button title='Save'
                     type='submit'
                 />
             </Form>
-        </Modal>
+        </Modal >
     )
 }
 

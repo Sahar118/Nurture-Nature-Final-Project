@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.GetAllEvent = exports.AddEvent = void 0;
+exports.updateEvent = exports.GetAllEvent = exports.AddEvent = void 0;
 
 var _require = require("."),
     axiosInstance = _require.axiosInstance; //  add new event
@@ -64,6 +64,36 @@ var GetAllEvent = function GetAllEvent(payload) {
       }
     }
   }, null, null, [[0, 7]]);
-};
+}; //  update an event
+
 
 exports.GetAllEvent = GetAllEvent;
+
+var updateEvent = function updateEvent(payload) {
+  var response;
+  return regeneratorRuntime.async(function updateEvent$(_context3) {
+    while (1) {
+      switch (_context3.prev = _context3.next) {
+        case 0:
+          _context3.prev = 0;
+          _context3.next = 3;
+          return regeneratorRuntime.awrap(axiosInstance.post("/api/events/update-event", payload));
+
+        case 3:
+          response = _context3.sent;
+          return _context3.abrupt("return", response.data);
+
+        case 7:
+          _context3.prev = 7;
+          _context3.t0 = _context3["catch"](0);
+          return _context3.abrupt("return", _context3.t0.message);
+
+        case 10:
+        case "end":
+          return _context3.stop();
+      }
+    }
+  }, null, null, [[0, 7]]);
+};
+
+exports.updateEvent = updateEvent;

@@ -53,7 +53,7 @@ const EventsList = () => {
             title: "Time",
             dataIndex: 'time',
             render: (text, record) => {
-                return moment(record.time, "hmm").format("HH:mm")
+                return moment(record.time).format("HH:MM")
             }
         },
 
@@ -62,21 +62,37 @@ const EventsList = () => {
             dataIndex: 'duration'
         },
         {
+            title: 'Poster',
+            dataIndex: 'poster',
+            render: (text, record) => {
+                return (
+                    <img
+                        src={record.poster}
+                        alt='poster'
+                        height='60'
+                        width='80'
+                        className='br-1'
+                    />
+                )
+            },
+        },
+        {
             title: "Action",
             dataIndex: "action",
             render: (text, record) => {
                 return (
                     <div className='actions-container'>
-                        <GrEdit />
+                        <GrEdit className='pointer'
+                            onClick={() => {
+                                setSelectEvent(record);
+                                setFormType("edit")
+                                setShowEventsFromModal(true);
+                            }}></GrEdit>
                         < RiDeleteBin6Line />
                     </div>
                 )
             }
         }
-        // {
-        //     title: "Poster URL",
-        //     dataIndex: 'poster'
-        // }
     ]
     useEffect(() => {
         getData();
@@ -94,13 +110,14 @@ const EventsList = () => {
                     }}
                 />
             </div>
-            <Table columns={columns} dataSource={events} />
+            <Table className='table' columns={columns} dataSource={events} />
             {showEventsFromModal && <EventsForm
                 showEventsFromModal={showEventsFromModal}
                 setShowEventsFromModal={setShowEventsFromModal}
                 selectEvent={selectEvent}
                 setSelectEvent={setSelectEvent}
                 formType={formType}
+                getData={getData}
             />}
         </div>
     )
