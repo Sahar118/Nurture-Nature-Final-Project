@@ -9,3 +9,14 @@ export const AddEvent = async (payload) => {
         return error.message;
     }
 }
+
+
+//  Get all events
+export const GetAllEvent = async (payload) => {
+    try {
+        const response = await axiosInstance.get("/api/events/get-all-events", payload);
+        return response.data;
+    } catch (error) {
+        return error.message;
+    }
+}
