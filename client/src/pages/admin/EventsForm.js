@@ -53,8 +53,12 @@ const EventsForm = ({
                             <input type='text' />
                         </Form.Item>
                     </Col>
-
                     <Col span={24}>
+                        <Form.Item label="Event Description" name='description'>
+                            <textarea type='text' />
+                        </Form.Item>
+                    </Col>
+                    <Col span={8}>
                         <Form.Item label="Event Location" name='location'>
                             <input type='text' />
                             {/* <select name='' id=''>
@@ -68,18 +72,25 @@ const EventsForm = ({
                         </Form.Item>
                     </Col>
 
-                    <Col span={24}>
-                        <Form.Item label="Event Description" name='description'>
-                            <textarea type='text' />
+
+
+                    <Col span={8}>
+                        <Form.Item label="Event Date" name='date'>
+                            <input type='date' />
                         </Form.Item>
                     </Col>
 
                     <Col span={8}>
-                        <Form.Item label="Event Date" name='date'>
-                            <input type='text' />
+                        <Form.Item label="Event Time" name='time'>
+                            <input type="time" />
                         </Form.Item>
                     </Col>
 
+                    <Col span={8}>
+                        <Form.Item label="Event Duration" name='duration'>
+                            <input type='number' />
+                        </Form.Item>
+                    </Col>
                     <Col span={16}>
                         <Form.Item label="Poster URL" name='poster'>
                             <input type='text' />

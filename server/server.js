@@ -5,7 +5,11 @@ const dbConfig = require("./config/dbConfig");
 app.use(express.json());
 
 const usersRoute = require("./routes/usersRoute");
+const eventsRoute = require("./routes/eventsRoute")
+
 app.use("/api/users", usersRoute)
+app.use("/api/events", eventsRoute)
+
 
 
 const port = process.env.PORT || 5000;
