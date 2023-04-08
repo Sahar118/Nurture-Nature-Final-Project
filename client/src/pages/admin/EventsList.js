@@ -6,7 +6,7 @@ import moment from 'moment-timezone';
 import { Table, message } from 'antd'
 import { useDispatch } from 'react-redux'
 import { HideLoading, ShowLoading } from '../../redux/loaderSlice'
-import { GetAllEvent } from '../../apicalls/events'
+import { GetAllEvent, deleteEvent } from '../../apicalls/events'
 import { GrEdit } from 'react-icons/gr';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 
@@ -23,6 +23,25 @@ const EventsList = () => {
             const response = await GetAllEvent();
             if (response.success) {
                 setEvents(response.data)
+            } else {
+                message.error(response.message)
+            }
+            dispatch(HideLoading())
+        } catch (error) {
+            dispatch(HideLoading())
+            message.error(error.message)
+        }
+    }
+
+    const handleDelete = async (eventId) => {
+        try {
+            dispatch(ShowLoading())
+            const response = await deleteEvent({
+                eventId,
+            });
+            if (response.success) {
+                message.success(response.message);
+                getData();
             } else {
                 message.error(response.message)
             }
@@ -88,7 +107,12 @@ const EventsList = () => {
                                 setFormType("edit")
                                 setShowEventsFromModal(true);
                             }}></GrEdit>
-                        < RiDeleteBin6Line />
+                        < RiDeleteBin6Line
+                            className='pointer'
+                            onClick={() => {
+                                handleDelete(record._id);
+                            }}
+                        ></RiDeleteBin6Line>
                     </div>
                 )
             }

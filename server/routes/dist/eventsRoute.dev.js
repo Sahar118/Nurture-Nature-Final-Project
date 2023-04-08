@@ -111,5 +111,38 @@ router.post('/update-event', authMiddleware, function _callee3(req, res) {
       }
     }
   }, null, null, [[0, 6]]);
+}); // Delete an Event
+
+router.post("/delete-event", authMiddleware, function _callee4(req, res) {
+  return regeneratorRuntime.async(function _callee4$(_context4) {
+    while (1) {
+      switch (_context4.prev = _context4.next) {
+        case 0:
+          _context4.prev = 0;
+          _context4.next = 3;
+          return regeneratorRuntime.awrap(Event.findByIdAndDelete(req.body.eventId));
+
+        case 3:
+          res.send({
+            success: true,
+            message: "Event Deleted successfully"
+          });
+          _context4.next = 9;
+          break;
+
+        case 6:
+          _context4.prev = 6;
+          _context4.t0 = _context4["catch"](0);
+          res.send({
+            success: false,
+            message: _context4.t0.message
+          });
+
+        case 9:
+        case "end":
+          return _context4.stop();
+      }
+    }
+  }, null, null, [[0, 6]]);
 });
 module.exports = router;

@@ -30,3 +30,13 @@ export const updateEvent = async (payload) => {
         return error.message;
     }
 }
+
+//  delete an event
+export const deleteEvent = async (payload) => {
+    try {
+        const response = await axiosInstance.post("/api/events/delete-event", payload);
+        return response.data;
+    } catch (error) {
+        return error.message;
+    }
+}

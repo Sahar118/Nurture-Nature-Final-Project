@@ -52,5 +52,21 @@ router.post('/update-event', authMiddleware, async (req, res) => {
     }
 })
 
+// Delete an Event
+router.post("/delete-event", authMiddleware, async (req, res) => {
+    try {
+        await Event.findByIdAndDelete(req.body.eventId);
+        res.send({
+            success: true,
+            message: "Event Deleted successfully"
+        });
+    } catch (error) {
+        res.send({
+            success: false,
+            message: error.message
+        });
+    }
+})
+
 
 module.exports = router;

@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.updateEvent = exports.GetAllEvent = exports.AddEvent = void 0;
+exports.deleteEvent = exports.updateEvent = exports.GetAllEvent = exports.AddEvent = void 0;
 
 var _require = require("."),
     axiosInstance = _require.axiosInstance; //  add new event
@@ -94,6 +94,36 @@ var updateEvent = function updateEvent(payload) {
       }
     }
   }, null, null, [[0, 7]]);
-};
+}; //  delete an event
+
 
 exports.updateEvent = updateEvent;
+
+var deleteEvent = function deleteEvent(payload) {
+  var response;
+  return regeneratorRuntime.async(function deleteEvent$(_context4) {
+    while (1) {
+      switch (_context4.prev = _context4.next) {
+        case 0:
+          _context4.prev = 0;
+          _context4.next = 3;
+          return regeneratorRuntime.awrap(axiosInstance.post("/api/events/delete-event", payload));
+
+        case 3:
+          response = _context4.sent;
+          return _context4.abrupt("return", response.data);
+
+        case 7:
+          _context4.prev = 7;
+          _context4.t0 = _context4["catch"](0);
+          return _context4.abrupt("return", _context4.t0.message);
+
+        case 10:
+        case "end":
+          return _context4.stop();
+      }
+    }
+  }, null, null, [[0, 7]]);
+};
+
+exports.deleteEvent = deleteEvent;
