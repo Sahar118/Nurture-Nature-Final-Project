@@ -5,7 +5,7 @@ import News from "./News";
 import Events from "./Events";
 import Forum from "./Forum";
 import Reports from "./Reports";
-import Admin from "./Admin";
+import Admin from "./admin/Admin";
 import Profile from "./Profile";
 export {
     Login,

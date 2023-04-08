@@ -72,7 +72,7 @@ var _Forum = _interopRequireDefault(require("./Forum"));
 
 var _Reports = _interopRequireDefault(require("./Reports"));
 
-var _Admin = _interopRequireDefault(require("./Admin"));
+var _Admin = _interopRequireDefault(require("./admin/Admin"));
 
 var _Profile = _interopRequireDefault(require("./Profile"));
 

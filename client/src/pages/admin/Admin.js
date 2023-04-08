@@ -1,13 +1,15 @@
 import React from 'react'
-import PageTitle from '../components/PageTitle'
+import PageTitle from '../../components/PageTitle'
 import { Tabs } from 'antd'
+import EventsList from './EventsList'
+import TheatreList from './TheatreList'
 const Admin = () => {
     return (
         <div>
             <PageTitle title='Admin' />
             <Tabs defaultActiveKey='1'>
                 <Tabs.TabPane tab='Events' key='1'>
-                    Events
+                    <EventsList />
                 </Tabs.TabPane>
 
                 <Tabs.TabPane tab='Reports' key='2'>
@@ -15,7 +17,7 @@ const Admin = () => {
                 </Tabs.TabPane>
 
                 <Tabs.TabPane tab='Theatres' key='3'>
-                    Theatres
+                    <TheatreList />
                 </Tabs.TabPane>
             </Tabs>
         </div>
