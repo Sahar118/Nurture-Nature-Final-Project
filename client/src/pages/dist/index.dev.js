@@ -74,6 +74,6 @@ var _Reports = _interopRequireDefault(require("./Reports"));
 
 var _Admin = _interopRequireDefault(require("./admin/Admin"));
 
-var _Profile = _interopRequireDefault(require("./Profile"));
+var _Profile = _interopRequireDefault(require("./profile/Profile"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }

@@ -6,7 +6,7 @@ import Events from "./Events";
 import Forum from "./Forum";
 import Reports from "./Reports";
 import Admin from "./admin/Admin";
-import Profile from "./Profile";
+import Profile from "./profile/Profile";
 export {
     Login,
     Register,

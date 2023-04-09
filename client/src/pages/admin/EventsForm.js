@@ -86,9 +86,6 @@ const EventsForm = ({
                             </select> */}
                         </Form.Item>
                     </Col>
-
-
-
                     <Col span={8}>
                         <Form.Item label="Event Date" name='date'>
                             <input type='date' />
@@ -111,21 +108,22 @@ const EventsForm = ({
                             <input type='text' />
                         </Form.Item>
                     </Col>
-
-
                 </Row>
 
-                <Button title='Cancel'
-                    variant='outline'
-                    type='button'
-                    onClick={() => {
-                        setShowEventsFromModal(false)
-                        setSelectEvent(null)
-                    }}
-                />
-                <Button title='Save'
-                    type='submit'
-                />
+                <div className='flex justify-end gap-1'>
+                    <Button title='Cancel'
+                        variant='outline'
+                        type='button'
+                        onClick={() => {
+                            setShowEventsFromModal(false)
+                            setSelectEvent(null)
+                        }}
+                    />
+                    <Button title='Save'
+                        type='submit'
+                    />
+                </div>
+
             </Form>
         </Modal >
     )
