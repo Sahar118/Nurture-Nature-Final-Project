@@ -1,14 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Button from "../../components/Button";
-import { useNavigate } from "react-router-dom";
-import ReportsForm from "../admin/ReportsList";
 import { GetAllReports, UpdateReports } from '../../apicalls/Reports'
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { message, Table } from "antd";
 import { HideLoading, ShowLoading } from "../../redux/loaderSlice";
-import { GrEdit } from "react-icons/gr";
-import { RiDeleteBin6Line } from "react-icons/ri";
-// import Shows from "./Shows";
 
 function ReportsList() {
 

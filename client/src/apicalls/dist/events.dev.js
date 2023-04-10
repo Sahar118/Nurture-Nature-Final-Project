@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.deleteEvent = exports.updateEvent = exports.GetAllEvent = exports.AddEvent = void 0;
+exports.saveEvent = exports.GetEventById = exports.deleteEvent = exports.updateEvent = exports.GetAllEvent = exports.AddEvent = void 0;
 
 var _require = require("."),
     axiosInstance = _require.axiosInstance; //  add new event
@@ -127,3 +127,61 @@ var deleteEvent = function deleteEvent(payload) {
 };
 
 exports.deleteEvent = deleteEvent;
+
+var GetEventById = function GetEventById(id) {
+  var response;
+  return regeneratorRuntime.async(function GetEventById$(_context5) {
+    while (1) {
+      switch (_context5.prev = _context5.next) {
+        case 0:
+          _context5.prev = 0;
+          _context5.next = 3;
+          return regeneratorRuntime.awrap(axiosInstance.get("/api/events/get-event-by-id/".concat(id)));
+
+        case 3:
+          response = _context5.sent;
+          return _context5.abrupt("return", response.data);
+
+        case 7:
+          _context5.prev = 7;
+          _context5.t0 = _context5["catch"](0);
+          return _context5.abrupt("return", _context5.t0.message);
+
+        case 10:
+        case "end":
+          return _context5.stop();
+      }
+    }
+  }, null, null, [[0, 7]]);
+};
+
+exports.GetEventById = GetEventById;
+
+var saveEvent = function saveEvent(id) {
+  var response;
+  return regeneratorRuntime.async(function saveEvent$(_context6) {
+    while (1) {
+      switch (_context6.prev = _context6.next) {
+        case 0:
+          _context6.prev = 0;
+          _context6.next = 3;
+          return regeneratorRuntime.awrap(axiosInstance.post("/api/events/saved-event/".concat(id)));
+
+        case 3:
+          response = _context6.sent;
+          return _context6.abrupt("return", response.data);
+
+        case 7:
+          _context6.prev = 7;
+          _context6.t0 = _context6["catch"](0);
+          return _context6.abrupt("return", _context6.t0.message);
+
+        case 10:
+        case "end":
+          return _context6.stop();
+      }
+    }
+  }, null, null, [[0, 7]]);
+};
+
+exports.saveEvent = saveEvent;

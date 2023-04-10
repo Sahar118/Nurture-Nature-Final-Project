@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import Button from '../../components/Button'
 import EventsForm from './EventsForm'
-// import moment from "moment"
-import moment from 'moment-timezone';
+import moment from 'moment'
+import { GetAllEvent, deleteEvent } from '../../apicalls/events'
 import { Table, message } from 'antd'
 import { useDispatch } from 'react-redux'
 import { HideLoading, ShowLoading } from '../../redux/loaderSlice'
-import { GetAllEvent, deleteEvent } from '../../apicalls/events'
 import { GrEdit } from 'react-icons/gr';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 
@@ -65,7 +64,7 @@ const EventsList = () => {
             title: "Date",
             dataIndex: 'date',
             render: (text, record) => {
-                return moment(record.date).format("DD-MM-YYYY")
+                return moment(record.date).format("YYYY-MM-DD")
             }
         },
         {

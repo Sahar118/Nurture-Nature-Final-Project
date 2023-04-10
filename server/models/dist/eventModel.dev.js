@@ -28,6 +28,10 @@ var eventSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
+  SaveEvent: {
+    type: Number,
+    "default": '0'
+  },
   poster: {
     type: String,
     required: true

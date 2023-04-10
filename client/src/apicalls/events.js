@@ -40,3 +40,22 @@ export const deleteEvent = async (payload) => {
         return error.message;
     }
 }
+
+
+export const GetEventById = async (id) => {
+    try {
+        const response = await axiosInstance.get(`/api/events/get-event-by-id/${id}`);
+        return response.data;
+    } catch (error) {
+        return error.message;
+    }
+}
+
+export const saveEvent = async (id) => {
+    try {
+        const response = await axiosInstance.post(`/api/events/saved-event/${id}`);
+        return response.data;
+    } catch (error) {
+        return error.message;
+    }
+}

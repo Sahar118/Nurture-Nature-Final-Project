@@ -20,8 +20,13 @@
 
 
   .center{
+    display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .row{
+    flex-direction: row;
   }
 
 .padding-2{
@@ -249,7 +254,8 @@ thead th {
 }
 
 .search-input {
-  height: 60px;
+  height: 3vh;
+  width: 60vw;
   border-radius: 5px;
 }
 
@@ -394,8 +400,9 @@ textarea{
 
 /*  */
 :root {
-  --colour-primary: #002E2A;
-  --colour-secondary: #e6b412;
+  --colour-primary: pink
+  ;
+  /* --colour-secondary: #e6b412; */
 }
 
 .bg-primary {
@@ -462,3 +469,40 @@ textarea{
 
 }
 
+
+.border{
+  /* border-top-left-radius: 150px; */
+  border-bottom-left-radius: 150px;
+  border-top-right-radius: 150px;
+}
+.border:hover{
+  border-bottom-left-radius: 290px;
+  border-top-right-radius: 290px;
+}
+
+/* .butterfly{
+  background: url(../assest/Untitled-design-8-5-removebg-preview.png) no-repeat center center/cover;
+  height: 150px;
+  width: 200px;
+
+} */
+
+
+.box{
+  height:600px;
+  width: 600px;
+  margin:  100px auto;
+  text-align: center;
+  line-height: 40px;
+
+}
+
+.hand{
+  height: 20px;
+  width: 300px;
+}
+
+.row{
+  display: flex;
+  flex-direction: row;
+}

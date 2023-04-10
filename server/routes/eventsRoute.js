@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { default: mongoose } = require('mongoose');
 const authMiddleware = require('../middlewares/authMiddleware');
 const Event = require('../models/eventModel')
 
@@ -20,7 +21,7 @@ router.post('/add-event', authMiddleware, async (req, res) => {
 });
 
 //  get all events
-router.get('/get-all-events', async (req, res) => {
+router.get('/get-all-events', authMiddleware, async (req, res) => {
     try {
         const events = await Event.find().sort({ date: +1 });
         res.send({
@@ -67,6 +68,45 @@ router.post("/delete-event", authMiddleware, async (req, res) => {
         });
     }
 })
+//  get event by id
+router.get('/get-event-by-id/:id', authMiddleware, async (req, res) => {
+    try {
+        const event = await Event.findById(req.params.id);
+        res.send({
+            success: true,
+            message: " Events fetched successfully",
+            data: event,
+        })
+    } catch (error) {
+        res.send({
+            success: false,
+            message: error.message
+        });
+    }
+})
+
+// Save event by id
+router.post('/saved-event/:id', authMiddleware, async (req, res) => {
+    try {
+        const { id } = req.params;
+        if (!mongoose.Types.ObjectId.isValid(id)) {
+            return res.status(404).send('No event with that id');
+        }
+        const event = await Event.findById(id);
+        event.SaveEvent++;
+        await event.save();
+        res.send({
+            success: true,
+            message: 'Event saved successfully',
+            data: event,
+        });
+    } catch (error) {
+        res.send({
+            success: false,
+            message: error.message,
+        });
+    }
+});
 
 
 module.exports = router;

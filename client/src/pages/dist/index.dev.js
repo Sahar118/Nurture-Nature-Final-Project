@@ -57,6 +57,18 @@ Object.defineProperty(exports, "Profile", {
     return _Profile["default"];
   }
 });
+Object.defineProperty(exports, "AboutTheEvent", {
+  enumerable: true,
+  get: function get() {
+    return _AboutTheEvent["default"];
+  }
+});
+Object.defineProperty(exports, "SavedEvents", {
+  enumerable: true,
+  get: function get() {
+    return _SavedEvents["default"];
+  }
+});
 
 var _Login = _interopRequireDefault(require("./Login"));
 
@@ -75,5 +87,9 @@ var _Reports = _interopRequireDefault(require("./Reports"));
 var _Admin = _interopRequireDefault(require("./admin/Admin"));
 
 var _Profile = _interopRequireDefault(require("./profile/Profile"));
+
+var _AboutTheEvent = _interopRequireDefault(require("./AboutTheEvent"));
+
+var _SavedEvents = _interopRequireDefault(require("./SavedEvents"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }

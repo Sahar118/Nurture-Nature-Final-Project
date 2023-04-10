@@ -14,7 +14,7 @@ const EventsForm = ({
     getData
 }) => {
     if (selectEvent) {
-        selectEvent.date = moment(selectEvent.date).format("YYYY-MM-DD")
+        selectEvent.date = moment(selectEvent.date).format("DD-MM-YYYY")
         selectEvent.time = moment(selectEvent.time).format("HH:MM")
 
     }

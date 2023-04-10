@@ -8,7 +8,9 @@ import {
   Events,
   News,
   Admin,
-  Profile
+  Profile,
+  AboutTheEvent,
+  SavedEvents
 } from './pages/index.js'
 import ProtectsRoute from './components/ProtectsRoute.js';
 import { useSelector } from 'react-redux';
@@ -29,6 +31,8 @@ function App() {
           <Route path='/report' element={<ProtectsRoute><Reports /> </ProtectsRoute>} />
           <Route path='/forum' element={<ProtectsRoute><Forum /> </ProtectsRoute>} />
           <Route path='/events' element={<ProtectsRoute><Events /> </ProtectsRoute>} />
+          <Route path='/event/:id' element={<ProtectsRoute><AboutTheEvent /> </ProtectsRoute>} />
+          <Route path='/event/saved-event' element={<ProtectsRoute><SavedEvents /> </ProtectsRoute>} />
           <Route path='/news' element={<ProtectsRoute><News /> </ProtectsRoute>} />
           <Route path='/admin' element={<ProtectsRoute> <Admin /></ProtectsRoute>} />
           <Route path='/profile' element={<ProtectsRoute> <Profile /></ProtectsRoute>} />

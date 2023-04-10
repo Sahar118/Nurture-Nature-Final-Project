@@ -2,6 +2,9 @@
 
 var router = require('express').Router();
 
+var _require = require('mongoose'),
+    mongoose = _require["default"];
+
 var authMiddleware = require('../middlewares/authMiddleware');
 
 var Event = require('../models/eventModel'); //  add a new Event
@@ -42,7 +45,7 @@ router.post('/add-event', authMiddleware, function _callee(req, res) {
   }, null, null, [[0, 7]]);
 }); //  get all events
 
-router.get('/get-all-events', function _callee2(req, res) {
+router.get('/get-all-events', authMiddleware, function _callee2(req, res) {
   var events;
   return regeneratorRuntime.async(function _callee2$(_context2) {
     while (1) {
@@ -144,5 +147,92 @@ router.post("/delete-event", authMiddleware, function _callee4(req, res) {
       }
     }
   }, null, null, [[0, 6]]);
+}); //  get event by id
+
+router.get('/get-event-by-id/:id', authMiddleware, function _callee5(req, res) {
+  var event;
+  return regeneratorRuntime.async(function _callee5$(_context5) {
+    while (1) {
+      switch (_context5.prev = _context5.next) {
+        case 0:
+          _context5.prev = 0;
+          _context5.next = 3;
+          return regeneratorRuntime.awrap(Event.findById(req.params.id));
+
+        case 3:
+          event = _context5.sent;
+          res.send({
+            success: true,
+            message: " Events fetched successfully",
+            data: event
+          });
+          _context5.next = 10;
+          break;
+
+        case 7:
+          _context5.prev = 7;
+          _context5.t0 = _context5["catch"](0);
+          res.send({
+            success: false,
+            message: _context5.t0.message
+          });
+
+        case 10:
+        case "end":
+          return _context5.stop();
+      }
+    }
+  }, null, null, [[0, 7]]);
+}); // Save event by id
+
+router.post('/saved-event/:id', authMiddleware, function _callee6(req, res) {
+  var id, event;
+  return regeneratorRuntime.async(function _callee6$(_context6) {
+    while (1) {
+      switch (_context6.prev = _context6.next) {
+        case 0:
+          _context6.prev = 0;
+          id = req.params.id;
+
+          if (mongoose.Types.ObjectId.isValid(id)) {
+            _context6.next = 4;
+            break;
+          }
+
+          return _context6.abrupt("return", res.status(404).send('No event with that id'));
+
+        case 4:
+          _context6.next = 6;
+          return regeneratorRuntime.awrap(Event.findById(id));
+
+        case 6:
+          event = _context6.sent;
+          event.SaveEvent++;
+          _context6.next = 10;
+          return regeneratorRuntime.awrap(event.save());
+
+        case 10:
+          res.send({
+            success: true,
+            message: 'Event saved successfully',
+            data: event
+          });
+          _context6.next = 16;
+          break;
+
+        case 13:
+          _context6.prev = 13;
+          _context6.t0 = _context6["catch"](0);
+          res.send({
+            success: false,
+            message: _context6.t0.message
+          });
+
+        case 16:
+        case "end":
+          return _context6.stop();
+      }
+    }
+  }, null, null, [[0, 13]]);
 });
 module.exports = router;
