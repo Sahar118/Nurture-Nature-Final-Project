@@ -34,7 +34,7 @@
 }
 
   input{
-    width: 30vw;
+    width: 40vw;
     height: 6vh;
 
   }
@@ -43,10 +43,11 @@
   }
 
   .button-1{
-    width: 30vw;
+    width: 10vw;
     height: 6vh;
-    background-color: #006400;
+    background-color: #215732;
     color: white;
+    font-weight: 600;
   }
 
   .pointer{
@@ -108,7 +109,9 @@
 }
 
 .mt-1 {
-  margin-top: 10px;
+  /* margin-top: -100px; */
+  color: #373737;
+  font-weight: 600;
 }
 .mt-2 {
   margin-top: 20px;
@@ -327,7 +330,7 @@ thead th {
 
 /*  */
 
- input , textarea , select{
+ textarea , select{
   height: 40px;
   padding-left: 15px;
   border: 1px solid #8a8a8a;
@@ -400,7 +403,7 @@ textarea{
 
 /*  */
 :root {
-  --colour-primary: pink
+  --color-primary: #215732;
   ;
   /* --colour-secondary: #e6b412; */
 }
@@ -505,4 +508,107 @@ textarea{
 .row{
   display: flex;
   flex-direction: row;
+}
+
+.box-register{
+  height: 80vh;
+  width: 60vw;
+}
+.box-login{
+  height: 80vh;
+  width: 60vw;
+  /* background-color: blueviolet; */
+}
+
+a{
+  color: #373737;
+  font-weight: 600;
+}
+a:hover{
+  color: var(--color-primary);
+}
+
+.design-login-container{
+  height: 80vh;
+  width: 60vw;
+  position: relative;
+  top: -250px;
+  /* z-index: 99999; */
+}
+
+.flower1{
+  height: 40vh;
+  width: 20vw;
+  position: absolute;
+  top: 120px; 
+  right: 600px; 
+}
+
+.flower5{
+  height: 35vh;
+  width: 10vw;
+  position:absolute;
+  top: 520px;
+right: -50px; 
+transform: rotate(15deg);
+}
+
+.bird{
+  height: 35vh;
+  width: 15vw;
+  position:absolute;
+  top: 120px;
+  left: 670px;
+transform:scaleX(100%);
+animation: animate1 10s infinite ease-in-out;
+right: 100px;
+z-index: 2;
+
+}
+
+@keyframes animate1{
+
+0%{
+top: 500px;
+left: 670px;
+}
+25%{
+top: 110px;
+/* left: 340px; */
+} 
+50%{
+top: 220px;
+/* left: 380px; */
+}
+75%{
+top:120px;
+/* left: 350px; */
+} 
+100%{
+top:180px;
+left: 100px;
+}
+} 
+
+.login-padding-top{
+  position: absolute;
+  top: 150px;
+  right: 340px;
+  /* left: -20px; */
+}
+
+Form{
+  z-index: 9999;
+}
+
+.title-login{
+  font-size: 2rem;
+  z-index: 9999;
+  color: var(--color-primary);
+}
+
+.login-height{
+  position: absolute;
+  line-height: 60px;
+
 }

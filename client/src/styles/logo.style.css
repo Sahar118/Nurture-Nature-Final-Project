@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+/* Add fallback fonts */
+
+body {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    
+  }
+  .contents {
+    position: absolute;
+    top: 5%;
+    left: 13%;
+    transform: translate(-50%, -50%);
+    /* height: 300px; */
+    overflow: hidden;
+    width: 300px;
+    font-family: 'Lato', sans-serif !important;
+    font-size: 30px;
+    line-height: 50px;
+    color: #ecf0f1;
+  }
+  
+  .content__container {
+    font-weight: 600;
+    overflow: hidden;
+    height: 45px;
+    padding: 0 ;
+    position: relative;
+  }
+  
+  .content__container:before {
+    left: 0;
+    position: absolute;
+    top: 0;
+    font-size: 42px;
+    line-height: 40px;
+    -webkit-animation-name: opacity;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    animation-name: opacity;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+  }
+  
+  .content__container:after {
+    
+    right: 0;
+    position: absolute;
+    top: 0;
+    
+    font-size: 42px;
+    line-height: 40px;
+    -webkit-animation-name: opacity;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    animation-name: opacity;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+  }
+  
+  .content__container__text1 {
+    display: inline;
+    float: left;
+    margin: 0;
+  }
+  .content__container__text2 {
+    display: inline;
+    float: right;
+    margin: 0;
+    margin-right:140px;
+  }
+  
+  .content__container__list {
+    margin-top: 0;
+    padding-left: 23px;
+    text-align: left;
+    list-style: none;
+    animation-name: change;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+  }
+  
+  .content__container__list__item{
+    line-height: 50px;
+    /* margin: 5; */
+  }
+  .content__container__list__item1{
+    line-height: 50px;
+    margin-left: 20px;
+    
+  }
+
+  @keyframes opacity {
+    0%, 100% {opacity:0;}
+    50% {opacity:1;}
+  }
+
+  @keyframes change {
+    33.32%,45.98% {transform:translate3d(0,-50%,0);}
+
+  }
+

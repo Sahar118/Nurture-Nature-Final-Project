@@ -154,14 +154,6 @@ function ReportsList() {
                     getData={getData}
                 />
             )}
-
-            {/* {openShowsModal && (
-                <Shows
-                    openShowsModal={openShowsModal}
-                    setOpenShowsModal={setOpenShowsModal}
-                    theatre={selectedTheatre}
-                />
-            )} */}
         </div>
     );
 }

@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { LoginUser } from "../apicalls/users.js";
 import { useDispatch } from "react-redux";
 import { HideLoading, ShowLoading } from "../redux/loaderSlice.js";
+import DesignLogin from "../components/DesignLogin.js";
 // import { RegisterUser } from "../../apicalls/users";
 // import { useNavigate } from "react-router-dom";
 // import { useDispatch } from "react-redux";
@@ -40,10 +41,11 @@ function Login() {
 
     return (
         <div className="p column center">
-            <div className="column center box-shadow padding-2">
-                <h1 className="text-xl mb-1">Nurture Nature - LOGIN</h1>
+            <div className="column center box-shadow padding-2 box-login">
+                <h1 className="title-login mb-1">Nurture Nature - LOGIN</h1>
                 <hr />
-                <Form layout="vertical" className="mt-1"
+                < DesignLogin />
+                <Form layout="vertical" className="mt-1 login-height"
                     onFinish={onFinish}
                 >
                     <Form.Item

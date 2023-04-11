@@ -14,6 +14,7 @@ import {
 } from './pages/index.js'
 import ProtectsRoute from './components/ProtectsRoute.js';
 import { useSelector } from 'react-redux';
+import ReportsList from './pages/profile/ReportsList.js';
 
 function App() {
   const { loading } = useSelector((state) => state.loaders)
@@ -28,7 +29,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<ProtectsRoute> <Home /></ProtectsRoute>} />
-          <Route path='/report' element={<ProtectsRoute><Reports /> </ProtectsRoute>} />
+          <Route path='/report' element={<ProtectsRoute><ReportsList /> </ProtectsRoute>} />
           <Route path='/forum' element={<ProtectsRoute><Forum /> </ProtectsRoute>} />
           <Route path='/events' element={<ProtectsRoute><Events /> </ProtectsRoute>} />
           <Route path='/event/:id' element={<ProtectsRoute><AboutTheEvent /> </ProtectsRoute>} />
