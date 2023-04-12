@@ -4,7 +4,7 @@ import { Col, Row, message } from 'antd'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { HideLoading, ShowLoading } from '../redux/loaderSlice';
-import Link from 'antd/es/typography/Link';
+import '../styles/event.style.css'
 // import burrterfly from '../assest/Untitled-design-8-5-removebg-preview.png'
 
 const Events = () => {
@@ -32,11 +32,13 @@ const Events = () => {
     }, [])
     return (
 
-        <div className='center column'>
-            <input type='text'
-                className='search-input '
-                placeholder='Search for Events'
-            />
+        <div className=' event-container'>
+            <div className='search-event-container'>
+                <input type='text'
+                    className='search-input '
+                    placeholder='Search for Events'
+                />
+            </div>
             <Row
 
                 gutter={[25, 25]}
@@ -46,8 +48,8 @@ const Events = () => {
                     {events.map((event) => {
                         return (
                             <Col span={8}>
-                                <div className=' row center butterfly'>
-                                    <img className='border pointer center row' src={event.poster} alt='poster'
+                                <div className=' '>
+                                    <img className='event-border pointer ' src={event.poster} alt='poster'
                                         height={200}
                                         width={220}
                                         onClick={() => navigate(`/event/${event._id}`)}

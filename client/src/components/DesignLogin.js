@@ -9,9 +9,6 @@ const DesignLogin = () => {
             <img src={flower1} alt='img' className='flower1' />
             <img src={flower5} alt='img' className='flower5' />
             <img src={bird} alt='img' className='bird' />
-
-
-
         </div>
     )
 }

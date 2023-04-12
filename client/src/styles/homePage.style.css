@@ -1,0 +1,268 @@
+.home-page{
+    height: 90vh;
+    width: 100%;
+    position: relative;
+    background: url(../assest/16617.jpg) no-repeat center center/cover;
+}
+.airplane{
+    z-index: 999999999999;
+    position: absolute;
+    opacity: 0.8;
+    width: 12vw;
+    top: -7vh;
+    transform:scaleX(100%);
+    animation: animate3 10s infinite ease-in-out;
+}
+@keyframes animate3{
+    0%{
+        top: -7vh;
+        left: 1vw;
+    }
+    100%{
+        top:-7vh;
+        left: 87vw;
+    }
+    } 
+.cloud1{
+    position: absolute;
+    left: 10px;
+    opacity: 0.5;
+   
+}
+.cloud2{
+    position: absolute;
+    left: 11.5vw;
+    top: 10vh;
+    opacity: 0.6;
+    transform:scaleY(100%);
+    animation: animate6 5s infinite ease-in-out;
+}
+
+@keyframes animate6{
+    0%{
+        top:10vh;
+    left: 11.5vw;
+
+    }
+    100%{
+        top: 5vh;
+    left: 13vw;
+    }
+    } 
+/* .cloud3{
+    position: absolute;
+    left: 16vw;
+    opacity: 0.5;
+} */
+.cloud4{
+    position: absolute;
+    left: 25vw;
+    top: 12vh;
+    opacity: 0.5;
+}
+.cloud5{
+    position: absolute;
+    left: 31vw;
+    top: 10vh;
+    opacity: 0.5;  
+    transform:scaleY(100%);
+    animation: animate7 5s infinite ease-in-out;
+}
+
+@keyframes animate7{
+    0%{
+        top:10vh;
+        left: 31vw;
+
+    }
+    100%{
+        top: 5vh;
+        left: 35vw;
+    }
+    } 
+.cloud6{
+    position: absolute;
+    left: 45vw;
+    top: 8vh;
+    opacity: 0.5;   
+    transform:scaleY(100%);
+    animation: animate10 7s infinite ease-in-out;
+}
+
+@keyframes animate10{
+    0%{
+        top: 8vh;
+        left: 45vw;
+
+    }
+    100%{
+        top: -2vh;
+        left: 50vw;
+    }
+    }
+/* .cloud7{
+    position: absolute;
+    left: 50vw;
+    top: 20vh;
+    opacity: 0.5;
+} */
+.cloud8{
+    position: absolute;
+    left: 57vw;
+    top: 10vh;
+    opacity: 0.5;
+}
+.cloud9{
+    position: absolute;
+    left: 60vw;
+    top: 5vh;
+    opacity: 0.5;
+    transform:scaleY(100%);
+    animation: animate9 7s infinite ease-in-out;
+}
+
+@keyframes animate9{
+    0%{
+        top: 5vh;
+        left: 60vw;
+
+    }
+    100%{
+        top: -2vh;
+        left: 50vw;
+    }
+    } 
+
+.cloud11{
+    position: absolute;
+    left: 77vw;
+    top: 10vh;
+    opacity: 0.5;
+}
+.cloud12{
+    position: absolute;
+    left: 80vw;
+    top: 2vh;
+    opacity: 0.5;
+    transform:scaleY(100%);
+    animation: animate8 7s infinite ease-in-out;
+}
+
+@keyframes animate8{
+    0%{
+        top: 2vh;
+        left: 80vw;
+
+    }
+    100%{
+        top: 5vh;
+        left: 70vw;
+    }
+    } 
+/* .cloud13{
+    position: absolute;
+    left: 80vw;
+    top: 11vh;
+    opacity: 0.5;
+} */
+
+.birds{
+    position: absolute;
+    z-index: 999;
+    height: 40vh;
+    width: 50vw;
+    top: -8vh;
+    left: 55vw;
+    transform:scaleX(100%);
+    animation: animate4 12s infinite ease-in-out;
+}
+
+@keyframes animate4{
+    0%{
+        left: 1vw;
+    }
+    50%{
+        top: 2vh;
+        left: 40vw;
+    }
+    100%{
+        left: 20vw;
+    }
+    } 
+
+.car{
+    height: 50vh;
+    position: absolute;
+    left: -5vw;
+    top: 33vh;
+    z-index: 9999;
+    opacity: 0.8;
+    transform:scaleX(100%);
+    animation: animate1 10s infinite ease-in-out;
+}
+
+@keyframes animate1{
+    
+0%{
+    top: 35vh;
+    left: 1vw;
+
+}
+/* 25%{
+    top: 33vh;
+    left:  25vw;
+}
+50%{
+    top: 30vh;
+    left:  50vw;
+}
+75%{
+    top: 26vh;
+    left:  60vw;
+} */
+100%{
+    top: 35vh;
+    left:  68vw;
+}
+} 
+
+.kid1{
+    position: absolute;
+    height: 18vh;
+    top: 42vh;
+    left:39vw;
+    opacity: 0.7;
+    transform:scaleY(100%);
+    animation: animate2 1s infinite ease-in-out;
+}
+
+
+.kid2{
+    position: absolute;
+    height: 18vh;
+    top: 42vh;
+    left:46vw;
+    opacity: 0.7;
+    transform:scaleY(100%);
+    animation: animate2 2s infinite ease-in-out;
+
+}
+
+.kid3{
+    position: absolute;
+    height: 18vh;
+    left: 60vh;
+    top: 42vh;
+    opacity: 0.7;
+    transform:scaleY(100%);
+    animation: animate2 1s infinite ease-in-out;
+}
+
+@keyframes animate2{
+    0%{
+        top: 42vh;
+    }
+    100%{
+        top: 32vh;
+    }
+    } 

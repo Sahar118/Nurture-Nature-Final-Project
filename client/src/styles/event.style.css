@@ -1,0 +1,25 @@
+.event-container{
+height: 90vh;
+width: 100%;
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+align-items: center;
+}
+
+.search-input{
+    height: 50px;
+    text-align: center;
+    border: 2px solid #215732;
+}
+
+.event-border{
+    /* border-top-left-radius: 150px; */
+    border-bottom-left-radius: 80px;
+    border-top-right-radius: 10px;
+  }
+  .event-border:hover{
+    border-bottom-left-radius: 290px;
+    border-top-right-radius: 290px;
+  }
+  

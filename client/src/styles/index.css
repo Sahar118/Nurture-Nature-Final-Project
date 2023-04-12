@@ -473,15 +473,6 @@ textarea{
 }
 
 
-.border{
-  /* border-top-left-radius: 150px; */
-  border-bottom-left-radius: 150px;
-  border-top-right-radius: 150px;
-}
-.border:hover{
-  border-bottom-left-radius: 290px;
-  border-top-right-radius: 290px;
-}
 
 /* .butterfly{
   background: url(../assest/Untitled-design-8-5-removebg-preview.png) no-repeat center center/cover;
