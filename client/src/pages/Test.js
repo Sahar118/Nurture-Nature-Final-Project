@@ -31,6 +31,7 @@ const Test = () => {
     }
     useEffect(() => {
         getData();
+        //eslint-disable-next-line
     }, [])
     return (
         <>

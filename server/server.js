@@ -30,5 +30,17 @@ app.use("/api/reports", reportsRoute);
 
 
 const port = process.env.PORT || 5000;
+const path = require("path");
+__dirname = path.resolve();
+
+
+// render deployment
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static(path.join(__dirname, "/client/build")));
+    app.get("*", (req, res) => {
+        res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+    });
+}
+
 
 app.listen(port, () => console.log(`node JS Server is running on port ${port}`));

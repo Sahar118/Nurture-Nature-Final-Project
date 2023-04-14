@@ -37,6 +37,7 @@ function Login() {
         if (localStorage.getItem("token")) {
             navigate("/");
         }
+        //eslint-disable-next-line
     }, []);
 
     return (

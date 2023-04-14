@@ -42,6 +42,7 @@ function ProtectedRoute({ children }) {
         } else {
             navigate("/login");
         }
+        //eslint-disable-next-line
     }, []);
 
     return (

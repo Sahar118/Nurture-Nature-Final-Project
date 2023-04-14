@@ -4,12 +4,10 @@
 // import { HideLoading, ShowLoading } from '../redux/loaderSlice'
 // import { message } from 'antd'
 // import { GetEventById } from '../apicalls/events'
-
 // const SavedEvents = () => {
 //     const [savedEvent, setSavedEvent] = useState(null)
 //     const params = useParams()
 //     const dispatch = useDispatch()
-
 //     const getData = async () => {
 //         try {
 //             dispatch(ShowLoading())
@@ -29,11 +27,11 @@
 //     }
 //     useEffect(() => {
 //         getData();
-        //eslint-disable-next-line
+//eslint-disable-next-line
 //     }, [])
 //     return (
 //         <div>SavedEvents</div>
 //     )
 // }
-
 // export default SavedEvents
+"use strict";

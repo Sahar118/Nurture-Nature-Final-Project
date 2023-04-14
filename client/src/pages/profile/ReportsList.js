@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Button from "../../components/Button";
-import { useNavigate } from "react-router-dom";
 import ReportsForm from "./ReportsForm";
 import {
     DeleteReports,
-    GetAllReports,
     GetAllReportsByOwner,
 } from "../../apicalls/Reports.js";
 import { useDispatch, useSelector } from "react-redux";
@@ -23,10 +21,7 @@ function ReportsList() {
     const [formType = "add", setFormType] = useState("add");
     const [reports = [], setReports] = useState([]);
 
-    const [openShowsModal = false, setOpenShowsModal] = useState(false);
-
     const dispatch = useDispatch();
-    const navigate = useNavigate();
 
     const getData = async () => {
         try {
@@ -113,7 +108,7 @@ function ReportsList() {
                                 className="underline"
                                 onClick={() => {
                                     setSelectedReports(record);
-                                    setOpenShowsModal(true);
+                                    // setOpenShowsModal(true);
                                 }}
                             >
                                 Shows
@@ -127,6 +122,7 @@ function ReportsList() {
 
     useEffect(() => {
         getData();
+        //eslint-disable-next-line
     }, []);
     return (
         <div>

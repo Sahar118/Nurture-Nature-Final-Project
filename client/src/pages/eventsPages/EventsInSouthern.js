@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { GetAllEvent, GetEventById } from '../../apicalls/events'
+import { GetAllEvent } from '../../apicalls/events'
 import { Col, Row, message } from 'antd'
 import { useDispatch } from 'react-redux'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, } from 'react-router-dom'
 import { HideLoading, ShowLoading } from '../../redux/loaderSlice'
 
 
 
 const EventsInSouthern = () => {
-    const params = useParams()
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const [events, setEvents] = useState([])
@@ -30,6 +29,7 @@ const EventsInSouthern = () => {
     }
     useEffect(() => {
         getData();
+        //eslint-disable-next-line
     }, [])
     return (
         <div>EventsInSouthern

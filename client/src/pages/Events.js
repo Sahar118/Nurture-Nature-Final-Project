@@ -30,6 +30,7 @@ const Events = () => {
     }
     useEffect(() => {
         getData();
+        //eslint-disable-next-line
     }, [])
     return (
         <>

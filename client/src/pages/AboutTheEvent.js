@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { GetEventById, saveEvent } from '../apicalls/events'
 import { message } from 'antd'
 import { useDispatch } from 'react-redux'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { HideLoading, ShowLoading } from '../redux/loaderSlice';
 import { BsHandThumbsUp } from 'react-icons/bs'
 import moment from 'moment'
@@ -10,7 +10,6 @@ import moment from 'moment'
 
 const AboutTheEvent = () => {
     const params = useParams()
-    const navigate = useNavigate()
     const dispatch = useDispatch()
     const [event, setEvent] = useState([])
 
@@ -48,6 +47,7 @@ const AboutTheEvent = () => {
     }
     useEffect(() => {
         getData();
+        //eslint-disable-next-line
     }, [])
     return (
         <>
