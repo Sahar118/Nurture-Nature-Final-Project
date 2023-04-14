@@ -17,8 +17,8 @@ const Navbar = () => {
                 <Link to='/report'>
                     <h4> New Report</h4>
                 </Link>
-                <Link to='/forum'>
-                    <h4> Forum</h4>
+                <Link to='/chat'>
+                    <h4> Chat</h4>
                 </Link>
             </div>
         </>

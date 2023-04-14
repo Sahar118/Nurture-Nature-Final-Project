@@ -33,16 +33,10 @@ Object.defineProperty(exports, "Events", {
     return _Events["default"];
   }
 });
-Object.defineProperty(exports, "Forum", {
+Object.defineProperty(exports, "Chat", {
   enumerable: true,
   get: function get() {
-    return _Forum["default"];
-  }
-});
-Object.defineProperty(exports, "Reports", {
-  enumerable: true,
-  get: function get() {
-    return _Reports["default"];
+    return _Chat["default"];
   }
 });
 Object.defineProperty(exports, "Admin", {
@@ -69,6 +63,30 @@ Object.defineProperty(exports, "SavedEvents", {
     return _SavedEvents["default"];
   }
 });
+Object.defineProperty(exports, "GetEventByDistrict", {
+  enumerable: true,
+  get: function get() {
+    return _GetEventByDistrict["default"];
+  }
+});
+Object.defineProperty(exports, "EventInCenteral", {
+  enumerable: true,
+  get: function get() {
+    return _EventInCenteral["default"];
+  }
+});
+Object.defineProperty(exports, "EventsInNorth", {
+  enumerable: true,
+  get: function get() {
+    return _EventsInNorth["default"];
+  }
+});
+Object.defineProperty(exports, "EventsInSouthern", {
+  enumerable: true,
+  get: function get() {
+    return _EventsInSouthern["default"];
+  }
+});
 
 var _Login = _interopRequireDefault(require("./Login"));
 
@@ -80,9 +98,7 @@ var _News = _interopRequireDefault(require("./News"));
 
 var _Events = _interopRequireDefault(require("./Events"));
 
-var _Forum = _interopRequireDefault(require("./Forum"));
-
-var _Reports = _interopRequireDefault(require("./Reports"));
+var _Chat = _interopRequireDefault(require("./Chat"));
 
 var _Admin = _interopRequireDefault(require("./admin/Admin"));
 
@@ -91,5 +107,13 @@ var _Profile = _interopRequireDefault(require("./profile/Profile"));
 var _AboutTheEvent = _interopRequireDefault(require("./AboutTheEvent"));
 
 var _SavedEvents = _interopRequireDefault(require("./SavedEvents"));
+
+var _GetEventByDistrict = _interopRequireDefault(require("./GetEventByDistrict"));
+
+var _EventInCenteral = _interopRequireDefault(require("./eventsPages/EventInCenteral"));
+
+var _EventsInNorth = _interopRequireDefault(require("./eventsPages/EventsInNorth"));
+
+var _EventsInSouthern = _interopRequireDefault(require("./eventsPages/EventsInSouthern"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }

@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react'
 import { GetAllEvent } from '../apicalls/events'
 import { Col, Row, message } from 'antd'
@@ -8,7 +9,7 @@ import '../styles/event.style.css'
 import GetEventByDistrict from './GetEventByDistrict'
 // import burrterfly from '../assest/Untitled-design-8-5-removebg-preview.png'
 
-const Events = () => {
+const Test = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const [events, setEvents] = useState([])
@@ -47,7 +48,7 @@ const Events = () => {
                     gutter={[25, 25]}
                     className='mt-1' >
                     <div className='center row'>
-
+                        {/* <h1 onClick={() => navigate(`/event/${events.district.north}`)}> {events.district}</h1> */}
                         {events.map((event) => {
                             return (
                                 <Col span={8}>
@@ -58,6 +59,7 @@ const Events = () => {
                                             onClick={() => navigate(`/event/${event._id}`)}
                                         />
                                     </div>
+                                    <h1>  {event.district}</h1>
                                     <div className='flex justify-center p-1'>
                                         <h1 className='text-md uppercase'>{event.title}</h1>
                                     </div>
@@ -74,4 +76,4 @@ const Events = () => {
     )
 }
 
-export default Events
+export default Test

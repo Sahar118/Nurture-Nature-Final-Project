@@ -51,6 +51,16 @@ export const GetEventById = async (id) => {
     }
 }
 
+export const GetAllEventsByDistrict = async (district) => {
+    try {
+        const response = await axiosInstance.get(`/api/events/get-event-by-district/${district}`);
+        return response.data;
+    } catch (error) {
+        return error.message;
+    }
+}
+
+
 export const saveEvent = async (id) => {
     try {
         const response = await axiosInstance.post(`/api/events/saved-event/${id}`);

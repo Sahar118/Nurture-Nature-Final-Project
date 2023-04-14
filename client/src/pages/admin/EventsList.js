@@ -61,6 +61,14 @@ const EventsList = () => {
             dataIndex: 'description'
         },
         {
+            title: "Location",
+            dataIndex: 'location'
+        },
+        {
+            title: "District",
+            dataIndex: 'district'
+        },
+        {
             title: "Date",
             dataIndex: 'date',
             render: (text, record) => {

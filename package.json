@@ -4,6 +4,8 @@
   "description": "This project raises people's awareness of the issue of environmental quality, by making available relevant information on the issue, and encouraging people to initiate and participate in events to protect the environment.",
   "main": "server.js",
   "scripts": {
+    "build": "cd server && npm install  && cd ../client && npm install && npm run build",
+    "start": "node server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Sahar Bader",

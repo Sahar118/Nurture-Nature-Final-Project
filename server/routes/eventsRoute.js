@@ -85,6 +85,24 @@ router.get('/get-event-by-id/:id', authMiddleware, async (req, res) => {
     }
 })
 
+//  get event by District
+router.get('/get-event-by-district/:district', authMiddleware, async (req, res) => {
+    try {
+        const event = await Event.findById(req.params.district);
+        res.send({
+            success: true,
+            message: " Events fetched successfully",
+            data: event,
+        })
+    } catch (error) {
+        res.send({
+            success: false,
+            message: error.message
+        });
+    }
+})
+
+
 // Save event by id
 router.post('/saved-event/:id', authMiddleware, async (req, res) => {
     try {
