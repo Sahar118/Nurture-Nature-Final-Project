@@ -32,11 +32,7 @@
   padding: 2vh;
 }
 
-  input{
-    width: 40vw;
-    height: 6vh;
 
-  }
   .box-shadow{
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
@@ -217,7 +213,9 @@
 .w-400 {
   width: 400px;
 }
-
+.w-96 {
+  width: 96px;
+}
 .content {
   min-height: 85vh;
   border: 1px solid #b1b1b1;

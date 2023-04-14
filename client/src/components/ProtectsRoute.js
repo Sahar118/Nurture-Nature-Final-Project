@@ -1,9 +1,9 @@
 import { message } from "antd";
 import React, { useEffect } from "react";
-import { GetCurrentUser } from "../apicalls/users";
+import { GetAllUsers, GetCurrentUser } from "../apicalls/users";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { SetUser } from "../redux/usersSlice";
+import { SetAllUsers, SetUser } from "../redux/usersSlice";
 import { HideLoading, ShowLoading } from "../redux/loaderSlice";
 import { AiOutlineUser } from "react-icons/ai";
 import { GrLogout } from "react-icons/gr";
@@ -20,9 +20,12 @@ function ProtectedRoute({ children }) {
         try {
             dispatch(ShowLoading());
             const response = await GetCurrentUser();
+            const allUsersResponse = await GetAllUsers();
             dispatch(HideLoading());
             if (response.success) {
                 dispatch(SetUser(response.data));
+                dispatch(SetAllUsers(allUsersResponse.data));
+
             } else {
                 dispatch(SetUser(null));
                 message.error(response.message);
