@@ -20,11 +20,14 @@ app.use('/api', router);
 const usersRoute = require("./routes/usersRoute");
 const eventsRoute = require("./routes/eventsRoute")
 const reportsRoute = require("./routes/reportsRoute");
+const chatsRoute = require("./routes/chatRoutes")
 
 
 app.use("/api/users", usersRoute)
 app.use("/api/events", eventsRoute)
 app.use("/api/reports", reportsRoute);
+app.use("/api/chats", chatsRoute);
+
 
 
 

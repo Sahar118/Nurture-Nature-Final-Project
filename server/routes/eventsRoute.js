@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const { default: mongoose } = require('mongoose');
 const authMiddleware = require('../middlewares/authMiddleware');
 const Event = require('../models/eventModel')
 

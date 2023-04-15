@@ -2,9 +2,6 @@
 
 var router = require('express').Router();
 
-var _require = require('mongoose'),
-    mongoose = _require["default"];
-
 var authMiddleware = require('../middlewares/authMiddleware');
 
 var Event = require('../models/eventModel'); //  add a new Event

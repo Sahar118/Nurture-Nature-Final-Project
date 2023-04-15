@@ -27,9 +27,12 @@ var eventsRoute = require("./routes/eventsRoute");
 
 var reportsRoute = require("./routes/reportsRoute");
 
+var chatsRoute = require("./routes/chatRoutes");
+
 app.use("/api/users", usersRoute);
 app.use("/api/events", eventsRoute);
 app.use("/api/reports", reportsRoute);
+app.use("/api/chats", chatsRoute);
 var port = process.env.PORT || 5000;
 
 var path = require("path");
