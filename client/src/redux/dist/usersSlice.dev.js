@@ -7,7 +7,7 @@ exports["default"] = exports.SetAllUsers = exports.SetUser = void 0;
 
 var _toolkit = require("@reduxjs/toolkit");
 
-var usersSlice = (0, _toolkit.createSlice)({
+var userSlice = (0, _toolkit.createSlice)({
   name: "users",
   initialState: {
     user: null,
@@ -22,10 +22,10 @@ var usersSlice = (0, _toolkit.createSlice)({
     }
   }
 });
-var _usersSlice$actions = usersSlice.actions,
-    SetUser = _usersSlice$actions.SetUser,
-    SetAllUsers = _usersSlice$actions.SetAllUsers;
+var _userSlice$actions = userSlice.actions,
+    SetUser = _userSlice$actions.SetUser,
+    SetAllUsers = _userSlice$actions.SetAllUsers;
 exports.SetAllUsers = SetAllUsers;
 exports.SetUser = SetUser;
-var _default = usersSlice.reducer;
+var _default = userSlice.reducer;
 exports["default"] = _default;

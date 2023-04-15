@@ -54,7 +54,7 @@ function Login() {
                         name="email"
                         rules={[{ required: true, message: "Please input your email!" }]}
                     >
-                        <input type="email" />
+                        <input className='input-login' w2type="email" />
                     </Form.Item>
                     <Form.Item
 
@@ -62,7 +62,7 @@ function Login() {
                         name="password"
                         rules={[{ required: true, message: "Please input your password!" }]}
                     >
-                        <input type="password" />
+                        <input className='input-login' type="password" />
                     </Form.Item>
 
                     <div className="column mt-2 gap-1">

@@ -320,7 +320,10 @@ thead th {
   border: 1px solid #8a8a8a;
   width: 100%;
 }
-
+.input-login{
+  height: 8vh;
+  width: 40vw;
+}
 input:focus , textarea:focus , select:focus{
   outline: none;
   border: 1px solid #373737;

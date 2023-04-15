@@ -49,21 +49,21 @@ function Register() {
                         name="name"
                         rules={[{ required: true, message: "Please input your Full Name!" }]}
                     >
-                        <input type="text" name="name" value={name} onChange={(e) => setName(e.target.value)} />
+                        <input className='input-login' type="text" name="name" value={name} onChange={(e) => setName(e.target.value)} />
                     </Form.Item>
                     <Form.Item
                         label="Email"
                         name="email"
                         rules={[{ required: true, message: "Please input your email!" }]}
                     >
-                        <input type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                        <input className='input-login' type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                     </Form.Item>
                     <Form.Item
                         label="Password"
                         name="password"
                         rules={[{ required: true, message: "Please input your password!" }]}
                     >
-                        <input type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                        <input className='input-login' type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                     </Form.Item>
                     <div className="column mt-2 gap-1">
                         <Button fullWidth title="Register" type="submit" />

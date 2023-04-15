@@ -1,11 +1,9 @@
-
 .input-chat{
   width: 25vw !important;
   height: 7vh;
   border-radius: 2rem;
   border: 2px solid  #215732 !important;
   padding-left: 20px !important;
-  
 }
 
 .input-chat:focus {
@@ -54,4 +52,28 @@
     left: 7vw;
     top: 12.8vh;
     color: brown;
+}
+
+.profile-pic{
+  height: 2rem;
+  border:2px solid #215732;
+  border-radius: 50%;
+}
+
+.users-list-container{
+  width: 25vw;
+  margin: .25rem 0;
+  padding: .5rem ;
+}
+
+.user-list-container{
+  padding: .5rem;
+  margin: .5rem;
+  border-radius: 2rem;
+background-color: #fff;
+}
+
+.user-list-container:hover{
+  border: 2px solid  #215732;
+
 }
