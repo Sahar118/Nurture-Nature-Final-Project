@@ -67,6 +67,8 @@
 }
 
 .user-list-container{
+  display: flex;
+  justify-content: space-between;
   padding: .5rem;
   margin: .5rem;
   border-radius: 2rem;
@@ -75,5 +77,10 @@ background-color: #fff;
 
 .user-list-container:hover{
   border: 2px solid  #215732;
+}
 
+.new-chat-button{
+  border: none;
+  background-color: #fff;
+  font-weight: 900;
 }

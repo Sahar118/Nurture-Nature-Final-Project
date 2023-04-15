@@ -20,16 +20,20 @@ router.post('/create-new-chat', authMiddleware, function _callee(req, res) {
 
         case 4:
           savedChat = _context.sent;
+          _context.next = 7;
+          return regeneratorRuntime.awrap(savedChat.populate("members"));
+
+        case 7:
           res.send({
             success: true,
             message: 'Chat created Successfully',
             data: savedChat
           });
-          _context.next = 11;
+          _context.next = 13;
           break;
 
-        case 8:
-          _context.prev = 8;
+        case 10:
+          _context.prev = 10;
           _context.t0 = _context["catch"](0);
           res.send({
             success: false,
@@ -37,12 +41,12 @@ router.post('/create-new-chat', authMiddleware, function _callee(req, res) {
             error: _context.t0.message
           });
 
-        case 11:
+        case 13:
         case "end":
           return _context.stop();
       }
     }
-  }, null, null, [[0, 8]]);
+  }, null, null, [[0, 10]]);
 }); //  get all chat of current user
 
 router.get('/get-all-chats', authMiddleware, function _callee2(req, res) {

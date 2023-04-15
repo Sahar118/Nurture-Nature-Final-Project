@@ -3,13 +3,14 @@ import React, { useEffect } from "react";
 import { GetAllUsers, GetCurrentUser } from "../apicalls/users";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { SetAllUsers, SetUser } from "../redux/usersSlice";
+import { SetAllChats, SetAllUsers, SetUser } from "../redux/usersSlice";
 import { HideLoading, ShowLoading } from "../redux/loaderSlice";
 import { AiOutlineUser } from "react-icons/ai";
 import { GrLogout } from "react-icons/gr";
 import Navbar from "./Navbar";
 import '../styles/navbar.style.css'
 import Logo from "./Logo";
+import { GetAllChats } from "../apicalls/chats";
 
 function ProtectedRoute({ children }) {
     const { user } = useSelector((state) => state.users);
@@ -21,13 +22,16 @@ function ProtectedRoute({ children }) {
             dispatch(ShowLoading());
             const response = await GetCurrentUser();
             const allUsersResponse = await GetAllUsers();
+            const allChatsResponse = await GetAllChats();
             dispatch(HideLoading());
             if (response.success) {
                 dispatch(SetUser(response.data));
                 dispatch(SetAllUsers(allUsersResponse.data));
-
+                dispatch(SetAllChats(allChatsResponse.data));
             } else {
                 dispatch(SetUser(null));
+                dispatch(SetAllUsers(null));
+                dispatch(SetAllChats(null));
                 message.error(response.message);
                 localStorage.removeItem("token");
                 navigate("/login");

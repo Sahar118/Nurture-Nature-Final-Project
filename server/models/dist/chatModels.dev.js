@@ -1,6 +1,6 @@
 "use strict";
 
-var mongoose = require('mongoose');
+var mongoose = require("mongoose");
 
 var chatSchema = new mongoose.Schema({
   members: {
@@ -20,4 +20,4 @@ var chatSchema = new mongoose.Schema({
 }, {
   timestamps: true
 });
-module.exports = mongoose.model('chats', chatSchema);
+module.exports = mongoose.model("chats", chatSchema);

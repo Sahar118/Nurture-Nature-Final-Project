@@ -1,19 +1,58 @@
 import React from 'react'
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import profilePicture from '../../assest/profile-pic.webp'
 import '../../styles/chat.style.css'
+import { AiOutlinePlus } from "react-icons/ai"
+import { HideLoading, ShowLoading } from "../../redux/loaderSlice";
+import { SetAllChats, SetSelectedChat } from '../../redux/usersSlice';
+import { toast } from 'react-hot-toast';
+import { CreateNewChat } from '../../apicalls/chats'
+
 const UsersList = ({ searchKey }) => {
-    const { allUsers } = useSelector((state) => state.users);
-    // allUsers = allUsers?.filter((user) => {
-    //     return user.name.toLowerCase().includes(searchKey.toLowerCase())
-    // })
+    const { allUsers, allChats, user } = useSelector((state) => state.users);
+    const dispatch = useDispatch();
+    const createNewChat = async (receipentUserId) => {
+        try {
+            dispatch(ShowLoading());
+            const response = await CreateNewChat([user._id, receipentUserId]);
+            dispatch(HideLoading());
+            if (response.success) {
+                toast.success(response.message);
+                const newChat = response.data;
+                const updatedChats = [...allChats, newChat];
+                dispatch(SetAllChats(updatedChats));
+                dispatch(SetSelectedChat(newChat));
+            } else {
+                toast.error(response.message);
+            }
+        } catch (error) {
+            dispatch(HideLoading());
+            toast.error(error.message);
+        }
+    };
+    const openChat = (receipentUserId) => {
+        const chat = allChats.find(
+            (chat) =>
+                chat.members.includes(user._id) &&
+                chat.members.includes(receipentUserId)
+        )
+        if (chat) {
+            dispatch(SetSelectedChat(chat));
+        }
+    }
+
+
     return (
         <div className='users-list-container'>
             {allUsers
-                .filter((user) => user.name.toLowerCase().includes(searchKey.toLowerCase()) && searchKey)
+                .filter((userObj) => (userObj.name.toLowerCase().includes(searchKey.toLowerCase())
+                    && searchKey) || allChats.some((chat) => chat.members.includes(userObj._id)))
                 .map((userObj) => {
                     return (
-                        <div className='box-shadow user-list-container pointer '>
+                        <div className='box-shadow user-list-container pointer '
+                            key={userObj._id}
+                            onClick={() => openChat(userObj._id)}
+                        >
                             <div className='flex gap-2'>
                                 {userObj.profilePic && (
                                     <img src={userObj.profilePic} alt='profile-pic' className='profile-pic' />
@@ -22,9 +61,21 @@ const UsersList = ({ searchKey }) => {
                                     <img src={profilePicture} alt='profile-pic' className='profile-pic' />
                                     // <div><h1> {userObj.name[0].toUpperCase()}</h1></div>
                                 )}
-
                                 <h4> {userObj.name} </h4>
                             </div>
+                            <div
+                                onClick={() => createNewChat(userObj._id)}
+                            >
+                                {!allChats.find((chat) => chat.members.includes(userObj._id))
+                                    && (
+                                        <div>
+                                            <button className='new-chat-button pointer' >
+                                                <AiOutlinePlus /> New Chat
+                                            </button>
+                                        </div>
+                                    )}
+                            </div>
+
                         </div>
                     )
                 })}

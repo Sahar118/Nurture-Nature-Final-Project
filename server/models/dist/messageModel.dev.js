@@ -1,6 +1,6 @@
 "use strict";
 
-var mongoose = require('mongoose');
+var mongoose = require("mongoose");
 
 var messageSchema = new mongoose.Schema({
   chat: {
@@ -12,14 +12,17 @@ var messageSchema = new mongoose.Schema({
     ref: "users"
   },
   text: {
+    type: String
+  },
+  image: {
     type: String,
-    required: true
+    required: false
   },
   read: {
     type: Boolean,
-    required: false
+    "default": false
   }
 }, {
   timestamps: true
 });
-module.exports = mongoose.model('messages', messageSchema);
+module.exports = mongoose.model("messages", messageSchema);
