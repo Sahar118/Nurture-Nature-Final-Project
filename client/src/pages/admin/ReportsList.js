@@ -88,6 +88,7 @@ function ReportsList() {
 
     useEffect(() => {
         getData();
+        // eslint-disable-next-line
     }, []);
     return (
         <div>

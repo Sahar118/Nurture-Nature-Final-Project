@@ -9,7 +9,7 @@ import { toast } from 'react-hot-toast';
 import { CreateNewChat } from '../../apicalls/chats'
 
 const UsersList = ({ searchKey }) => {
-    const { allUsers, allChats, user } = useSelector((state) => state.users);
+    const { allUsers, allChats, user, selectedChat } = useSelector((state) => state.users);
     const dispatch = useDispatch();
     const createNewChat = async (receipentUserId) => {
         try {
@@ -33,23 +33,32 @@ const UsersList = ({ searchKey }) => {
     const openChat = (receipentUserId) => {
         const chat = allChats.find(
             (chat) =>
-                chat.members.includes(user._id) &&
-                chat.members.includes(receipentUserId)
+                chat.members.map((mem) => mem._id).includes(user._id) &&
+                chat.members.map((mem) => mem._id).includes(receipentUserId)
         )
         if (chat) {
             dispatch(SetSelectedChat(chat));
         }
     }
 
+    const getData = () => {
+        return allUsers
+            .filter((userObj) => (userObj.name.toLowerCase().includes(searchKey.toLowerCase())
+                && searchKey) || allChats.some((chat) => chat.members.map((mem) => mem._id).includes(userObj._id)))
+    }
 
+    const getIsSelectedChatOrNot = (userObj) => {
+        if (selectedChat) {
+            return selectedChat.members.map((mem) => mem._id).includes(user._id)
+        }
+        return false;
+    }
     return (
         <div className='users-list-container'>
-            {allUsers
-                .filter((userObj) => (userObj.name.toLowerCase().includes(searchKey.toLowerCase())
-                    && searchKey) || allChats.some((chat) => chat.members.includes(userObj._id)))
+            {getData()
                 .map((userObj) => {
                     return (
-                        <div className='box-shadow user-list-container pointer '
+                        <div className={`box-shadow user-list-container pointer ${getIsSelectedChatOrNot(userObj) && "selected-user-or-not"}`}
                             key={userObj._id}
                             onClick={() => openChat(userObj._id)}
                         >
@@ -66,7 +75,7 @@ const UsersList = ({ searchKey }) => {
                             <div
                                 onClick={() => createNewChat(userObj._id)}
                             >
-                                {!allChats.find((chat) => chat.members.includes(userObj._id))
+                                {!allChats.find((chat) => chat.members.map((mem) => mem._id).includes(userObj._id))
                                     && (
                                         <div>
                                             <button className='new-chat-button pointer' >

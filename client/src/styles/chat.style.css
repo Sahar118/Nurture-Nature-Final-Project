@@ -71,7 +71,7 @@
   justify-content: space-between;
   padding: .5rem;
   margin: .5rem;
-  border-radius: 2rem;
+  border-radius: 1rem;
 background-color: #fff;
 }
 
@@ -83,4 +83,40 @@ background-color: #fff;
   border: none;
   background-color: #fff;
   font-weight: 900;
+}
+
+.chat-area-container{
+  /* background-color: yellowgreen; */
+  margin-top: 2rem;
+  margin-right: 1rem;
+  /* position: relative; */
+  height: 74vh;
+  width: 69vw;
+  border-radius: 1rem;
+}
+
+.selected-user-or-not{
+  /* color:#215732; */
+  /* border: 2px solid brown; */
+}
+
+.recipient-user-container{
+  display: flex;
+  /* background-color: yellowgreen; */
+  height: 8vh;
+  padding-left: 3vw;
+
+}
+.name-title-chat{
+color: #215732;
+text-transform: uppercase;
+font-weight: 900 !important;
+margin-top: 1.75vh;
+margin-left: 1vw;
+}
+
+.chat-area-icon{
+  height: 8vh;
+  width: 5vh;
+  color: brown;
 }

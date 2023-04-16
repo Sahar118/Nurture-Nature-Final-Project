@@ -519,14 +519,14 @@ transform: rotate(15deg);
   position:absolute;
   top: 120px;
   left: 670px;
-transform:scaleX(100%);
-animation: birdLogin 10s infinite ease-in-out;
+/* transform:scaleX(100%);
+animation: birdLogin 10s infinite ease-in-out; */
 right: 100px;
 z-index: 2;
 
 }
 
-@keyframes birdLogin{
+/* @keyframes birdLogin{
 
 0%{
 top: 500px;
@@ -545,7 +545,7 @@ top:120px;
 top:180px;
 left: 100px;
 }
-} 
+}  */
 
 .login-padding-top{
   position: absolute;

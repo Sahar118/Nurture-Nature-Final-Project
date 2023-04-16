@@ -127,6 +127,7 @@ const EventsList = () => {
     ]
     useEffect(() => {
         getData();
+        // eslint-disable-next-line
     }, [])
 
     return (
