@@ -138,7 +138,7 @@ text-align: center;
 font-size: larger;
 border-radius: 1rem;
 height: 100%;
-width: 90%;
+width: 85%;
 }
 .input-type-message:focus{
   border: none;
@@ -154,15 +154,24 @@ width: 90%;
   width: 100%;
   border-radius: 1rem;
   border: 1px solid #215732;
+  
 }
 .chat-btn{
+  text-transform: uppercase;
   color: whitesmoke;
   background-color:#215732;
   font-size: medium;
-width: 10%;
+width: 15%;
 height: 100%;
 border-top-right-radius: .75rem;
 border-bottom-right-radius: .75rem;
   border: none;
 margin-bottom: 1px;
+position: relative;
+top: -.1rem;
+}
+.send-icon{
+margin-left: .5rem;
+position: relative;
+top: .25rem;
 }
