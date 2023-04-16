@@ -85,9 +85,9 @@ router.get('/get-event-by-id/:id', authMiddleware, async (req, res) => {
 })
 
 //  get event by District
-router.get('/get-event-by-district/:district', authMiddleware, async (req, res) => {
+router.get('/get-event-by-district/:district', async (req, res) => {
     try {
-        const event = await Event.findById(req.params.district);
+        const event = await Event.find({ district: req.params.district });
         res.send({
             success: true,
             message: " Events fetched successfully",

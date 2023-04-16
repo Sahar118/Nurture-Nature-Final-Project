@@ -7,9 +7,8 @@ var router = express.Router();
 
 require("dotenv").config();
 
-var dbConfig = require("./config/dbConfig");
+var dbConfig = require("./config/dbConfig"); // define a middleware function
 
-app.use(express.json()); // define a middleware function
 
 var myMiddleware = function myMiddleware(req, res, next) {
   console.log('Middleware executed');
@@ -29,10 +28,14 @@ var reportsRoute = require("./routes/reportsRoute");
 
 var chatsRoute = require("./routes/chatRoutes");
 
+var messagesRoute = require('./routes/messagesRoute');
+
+app.use(express.json());
 app.use("/api/users", usersRoute);
 app.use("/api/events", eventsRoute);
 app.use("/api/reports", reportsRoute);
 app.use("/api/chats", chatsRoute);
+app.use('/api/messages', messagesRoute);
 var port = process.env.PORT || 5000;
 
 var path = require("path");

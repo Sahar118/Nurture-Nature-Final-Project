@@ -25,14 +25,10 @@ function App() {
   const { loading } = useSelector((state) => state.loaders)
   return (
     <div>
-      {!loading && (
-        <>
-          <div className='loader-parent'>
-            <LoadingLogo />
-          </div>
-        </>
-        //   <div className='loader'>
-        //   </div>
+      {loading && (
+        <div className='loader-parent'>
+          <LoadingLogo />
+        </div>
       )}
       <BrowserRouter>
         <Routes>

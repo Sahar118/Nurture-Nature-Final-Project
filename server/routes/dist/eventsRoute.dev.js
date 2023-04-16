@@ -182,7 +182,7 @@ router.get('/get-event-by-id/:id', authMiddleware, function _callee5(req, res) {
   }, null, null, [[0, 7]]);
 }); //  get event by District
 
-router.get('/get-event-by-district/:district', authMiddleware, function _callee6(req, res) {
+router.get('/get-event-by-district/:district', function _callee6(req, res) {
   var event;
   return regeneratorRuntime.async(function _callee6$(_context6) {
     while (1) {
@@ -190,7 +190,9 @@ router.get('/get-event-by-district/:district', authMiddleware, function _callee6
         case 0:
           _context6.prev = 0;
           _context6.next = 3;
-          return regeneratorRuntime.awrap(Event.findById(req.params.district));
+          return regeneratorRuntime.awrap(Event.find({
+            district: req.params.district
+          }));
 
         case 3:
           event = _context6.sent;
