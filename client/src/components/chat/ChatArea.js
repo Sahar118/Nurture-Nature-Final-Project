@@ -1,7 +1,9 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import profilePicture from '../../assest/profile-pic.webp'
+
 import '../../styles/chat.style.css'
-import { TbBrandHipchat } from "react-icons/tb";
+// import { TbBrandHipchat } from "react-icons/tb";
 const ChatArea = () => {
     const { selectedChat, user } = useSelector((state) => state.users)
     const recipientUser = selectedChat.members.find(
@@ -11,19 +13,35 @@ const ChatArea = () => {
     return (
         <div className='chat-area-container box-shadow'>
             {/* recipient user */}
-            <div className='recipient-user-container'>
-                <TbBrandHipchat className='chat-area-icon' /><h2 className='name-title-chat'>{recipientUser.name}</h2>
+            <div >
+                <div className='recipient-user-container'>
+                    {recipientUser.profilePic && (
+                        <img src={recipientUser.profilePic} alt='profile-pic' className='profile-pic' />
+                    )}
+                    {!recipientUser.profilePic && (
+                        <img src={profilePicture} alt='profile-pic' className='profile-pic' />
+                        // <div><h1> {userObj.name[0].toUpperCase()}</h1></div>
+                    )}
+
+                    <h2 className='name-title-chat'>{recipientUser.name}</h2>
+                </div>
+                <hr></hr>
             </div>
             {/* chat message */}
             <div>
                 chat message
             </div>
             {/* chat input */}
-            <div>
-                chat input
+            <div className='chat-input-container'>
+                <input type='text' placeholder='Type a message'
+                    className='input-type-message'
+                />
+                <button className='chat-btn'>
+                    Send
+                </button>
             </div>
 
-        </div>
+        </div >
     )
 }
 

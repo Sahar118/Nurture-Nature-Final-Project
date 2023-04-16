@@ -58,6 +58,8 @@
   height: 2rem;
   border:2px solid #215732;
   border-radius: 50%;
+  position: relative;
+  margin-top: -.3rem;
 }
 
 .users-list-container{
@@ -93,6 +95,10 @@ background-color: #fff;
   height: 74vh;
   width: 69vw;
   border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
 }
 
 .selected-user-or-not{
@@ -103,15 +109,19 @@ background-color: #fff;
 .recipient-user-container{
   display: flex;
   /* background-color: yellowgreen; */
-  height: 8vh;
-  padding-left: 3vw;
+  height: 5vh;
+  /* padding-left: 3vw; */
+}
+
+.recipient-user-container:focus{
+  border: 1.5px solid brown;
 
 }
 .name-title-chat{
 color: #215732;
 text-transform: uppercase;
 font-weight: 900 !important;
-margin-top: 1.75vh;
+/* margin-top: -0.2rem; */
 margin-left: 1vw;
 }
 
@@ -119,4 +129,40 @@ margin-left: 1vw;
   height: 8vh;
   width: 5vh;
   color: brown;
+}
+
+
+.input-type-message{
+border: none;
+text-align: center;
+font-size: larger;
+border-radius: 1rem;
+height: 100%;
+width: 90%;
+}
+.input-type-message:focus{
+  border: none;
+}
+
+.chat-input-container:focus{
+  border: none;
+
+}
+
+.chat-input-container{
+  height: 10vh;
+  width: 100%;
+  border-radius: 1rem;
+  border: 1px solid #215732;
+}
+.chat-btn{
+  color: whitesmoke;
+  background-color:#215732;
+  font-size: medium;
+width: 10%;
+height: 100%;
+border-top-right-radius: .75rem;
+border-bottom-right-radius: .75rem;
+  border: none;
+margin-bottom: 1px;
 }

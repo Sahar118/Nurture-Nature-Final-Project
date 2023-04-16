@@ -51,7 +51,7 @@ const UsersList = ({ searchKey }) => {
         if (selectedChat) {
             return selectedChat.members.map((mem) => mem._id).includes(user._id)
         }
-        return false;
+        else { return false };
     }
     return (
         <div className='users-list-container'>
