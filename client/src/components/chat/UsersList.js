@@ -7,10 +7,12 @@ import { HideLoading, ShowLoading } from "../../redux/loaderSlice";
 import { SetAllChats, SetSelectedChat } from '../../redux/usersSlice';
 import { toast } from 'react-hot-toast';
 import { CreateNewChat } from '../../apicalls/chats'
+import moment from 'moment';
 
 const UsersList = ({ searchKey }) => {
     const { allUsers, allChats, user, selectedChat } = useSelector((state) => state.users);
     const dispatch = useDispatch();
+
     const createNewChat = async (receipentUserId) => {
         try {
             dispatch(ShowLoading());
@@ -40,19 +42,39 @@ const UsersList = ({ searchKey }) => {
             dispatch(SetSelectedChat(chat));
         }
     }
-
     const getData = () => {
         return allUsers
             .filter((userObj) => (userObj.name.toLowerCase().includes(searchKey.toLowerCase())
                 && searchKey) || allChats.some((chat) => chat.members.map((mem) => mem._id).includes(userObj._id)))
     }
-
     const getIsSelectedChatOrNot = (userObj) => {
         if (selectedChat) {
             return selectedChat.members.map((mem) => mem._id).includes(user._id)
         }
         else { return false };
     }
+    const getLastMsg = (userObj) => {
+        const chat = allChats.find((chat) =>
+            chat.members.map((mem) => mem._id).includes(userObj._id)
+        );
+        if (!chat || !chat.lastMessage) {
+            return "";
+        } else {
+            const lastMsgPerson = chat?.lastMessage?.sender === user._id ? "You :" : "";
+            return (
+                <div>
+                    <h3>
+                        {lastMsgPerson}  {chat.lastMessage.text}
+                    </h3>
+                    <h5 className='chat-moment'>
+                        {moment(chat?.lastMessage?.createdAt).format("hh:mm A")}
+                    </h5>
+                </div>
+            )
+
+        }
+    }
+
     return (
         <div className='users-list-container'>
             {getData()
@@ -70,7 +92,12 @@ const UsersList = ({ searchKey }) => {
                                     <img src={profilePicture} alt='profile-pic' className='profile-pic' />
                                     // <div><h1> {userObj.name[0].toUpperCase()}</h1></div>
                                 )}
-                                <h4> {userObj.name} </h4>
+                                <div className='column user-column'>
+
+                                    <h4 className='user-obj-name'> {userObj.name} </h4>
+                                    <h5 className='get-last-message'> {getLastMsg(userObj)}</h5>
+
+                                </div>
                             </div>
                             <div
                                 onClick={() => createNewChat(userObj._id)}

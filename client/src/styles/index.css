@@ -1,7 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap');
+
 
   *{
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif !important;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -361,11 +362,11 @@ textarea{
 }
 
 .bg-primary {
-  background-color: var(--colour-primary);
+  background-color: var(--color-primary);
 }
 
 .bg-secondary {
-  background-color: var(--colour-secondary);
+  background-color: var(--color-secondary);
 }
 
 .bg-error{
@@ -385,11 +386,11 @@ textarea{
 }
 
 .text-primary {
-  color: var(--colour-primary) !important;
+  color: var(--color-primary) !important;
 }
 
 .text-secondary {
-  color: var(--colour-secondary);
+  color: var(--color-secondary);
 }
 
 .text-black{
@@ -401,11 +402,11 @@ textarea{
 }
 
 .border-primary {
-  border-color: var(--colour-primary);
+  border-color: var(--color-primary);
 }
 
 .border-secondary {
-  border-color: var(--colour-secondary);
+  border-color: var(--color-secondary);
 }  
 
 .name-logged-in{

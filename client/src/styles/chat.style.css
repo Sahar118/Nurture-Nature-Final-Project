@@ -55,11 +55,14 @@
 }
 
 .profile-pic{
-  height: 2rem;
+  height: 3rem;
   border:2px solid #215732;
   border-radius: 50%;
-  position: relative;
-  margin-top: -.3rem;
+  margin: .25rem;
+}
+
+.top-3{
+  margin-top: -1.5rem;
 }
 
 .users-list-container{
@@ -75,6 +78,7 @@
   margin: .5rem;
   border-radius: 1rem;
 background-color: #fff;
+height: 12vh;
 }
 
 .user-list-container:hover{
@@ -121,7 +125,7 @@ background-color: #fff;
 color: #215732;
 text-transform: uppercase;
 font-weight: 900 !important;
-/* margin-top: -0.2rem; */
+margin-top: -1rem;
 margin-left: 1vw;
 }
 
@@ -187,15 +191,7 @@ font-weight: 900;
   padding: .5rem;
 width: initial;
 height: inherit;
-
-
 }
-
-
-/* .hello{
-  background-color: yellowgreen;
-  max-width: 0vw;
-} */
 
 .bg-recipient{
   background-color: brown;
@@ -211,6 +207,23 @@ height: inherit;
 
 .chat-message-area-container{
   overflow-y: scroll;
-  background-color: yellowgreen;
   margin: 1rem;
+}
+.user-obj-name{
+color: #215732;
+text-transform: uppercase;
+font-weight: 900;
+}
+.get-last-message{
+color: brown;
+}
+
+.user-column{
+  line-height: 1.235rem;
+}
+
+.chat-moment{
+  color:#215732;
+  position: relative;
+  right: -9rem;
 }

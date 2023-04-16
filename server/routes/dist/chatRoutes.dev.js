@@ -61,7 +61,7 @@ router.get('/get-all-chats', authMiddleware, function _callee2(req, res) {
             members: {
               $in: [req.body.userId]
             }
-          }).populate("members").sort({
+          }).populate("members").populate("lastMessage").sort({
             updatedAt: -1
           }));
 

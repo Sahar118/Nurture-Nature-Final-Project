@@ -61,7 +61,7 @@ const ChatArea = () => {
                         <img src={recipientUser.profilePic} alt='profile-pic' className='profile-pic' />
                     )}
                     {!recipientUser.profilePic && (
-                        <img src={profilePicture} alt='profile-pic' className='profile-pic' />
+                        <img src={profilePicture} alt='profile-pic' className='profile-pic top-3' />
                         // <div><h1> {userObj.name[0].toUpperCase()}</h1></div>
                     )}
 
