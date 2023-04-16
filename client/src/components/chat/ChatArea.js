@@ -6,7 +6,7 @@ import { AiOutlineSend } from "react-icons/ai";
 import { HideLoading, ShowLoading } from '../../redux/loaderSlice';
 import { toast } from 'react-toastify';
 import { GetMessages, sendMessage } from '../../apicalls/messages'
-
+import moment from 'moment'
 
 const ChatArea = () => {
     const dispatch = useDispatch()
@@ -70,15 +70,21 @@ const ChatArea = () => {
                 <hr></hr>
             </div>
             {/* chat message */}
-            <div>
-                {messages.map((message) => {
-                    const isCurrentUserIsSender = message.sender._id === user._id;
-                    return (
-                        <div className='column'>
-
-                        </div>
-                    )
-                })}
+            <div className='chat-message-area-container'>
+                <div className='column'>
+                    {messages.map((message) => {
+                        const isCurrentUserIsSender = message.sender === user._id;
+                        return (
+                            <div className={`flex ${isCurrentUserIsSender && 'justify-end'}`}>
+                                <div className='column'>
+                                    <h3
+                                        className={`${isCurrentUserIsSender ? "bg-sender" : "bg-recipient"
+                                            }`}>{message.text}</h3>
+                                    <h5> {moment(message.createdAt).format("hh:mm A")}</h5>   </div>
+                            </div>
+                        )
+                    })}
+                </div>
             </div>
             {/* chat input */}
             <div className='chat-input-container'>

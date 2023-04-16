@@ -176,3 +176,41 @@ top: .25rem;
 color: #215732;
 font-weight: 900;
 }
+
+.bg-sender{
+  background-color: #215732;
+  color: white;
+  border-radius: 1rem;
+  border-top-right-radius: 0;
+  height: 10vh;
+  width: 25vw;
+  padding: .5rem;
+width: initial;
+height: inherit;
+
+
+}
+
+
+/* .hello{
+  background-color: yellowgreen;
+  max-width: 0vw;
+} */
+
+.bg-recipient{
+  background-color: brown;
+  border-radius: 1rem;
+  border-top-left-radius: 0;
+  height: 10vh;
+  width: 25vw;
+  color: white;
+  padding: .5rem;
+width: initial;
+height: inherit;
+}
+
+.chat-message-area-container{
+  overflow-y: scroll;
+  background-color: yellowgreen;
+  margin: 1rem;
+}
