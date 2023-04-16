@@ -284,36 +284,6 @@ thead th {
 }
 
 
- .loader-parent {
-  position: fixed;
-  background-color:black;
-  inset: 0;
-  opacity: 0.8;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999999;
-} 
-
-.loader {
-  height: 150px;
-  width: 150px;
-  background: url(../assest/childrenLogo.jpeg) no-repeat center center/cover;
-  animation: loader-anim 3s linear infinite;
-} 
-
-
-
- @keyframes loader-anim {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-
  textarea , select{
   height: 40px;
   padding-left: 15px;

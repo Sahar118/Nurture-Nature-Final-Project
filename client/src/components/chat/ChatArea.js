@@ -2,8 +2,6 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import profilePicture from '../../assest/profile-pic.webp'
 import '../../styles/chat.style.css'
-// import { TbBrandHipchat } from "react-icons/tb";
-// import { BsSend } from "react-icons/bs";
 import { AiOutlineSend } from "react-icons/ai";
 
 
@@ -40,9 +38,7 @@ const ChatArea = () => {
                     className='input-type-message'
                 />
                 <button className='chat-btn'>
-                    Send
-                    <AiOutlineSend className='send-icon' />
-                    {/* <BsSend /> */}
+                    <AiOutlineSend className='send-icon pointer' />
                 </button>
             </div>
 

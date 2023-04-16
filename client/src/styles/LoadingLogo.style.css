@@ -7,13 +7,22 @@ body {
     position: relative;
     
   }
-  
-  .contents {
+
+  .loader-parent {
+    position: fixed;
+    background-color:white;
+    inset: 0;
+    opacity: 0.8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;
+  }  
+  .contents-loading {
     position: absolute;
-    top: 5%;
-    left: 13%;
+    top: 50%;
+    left: 55%;
     transform: translate(-50%, -50%);
-    /* height: 300px; */
     overflow: hidden;
    
     width: 300px;
@@ -23,7 +32,7 @@ body {
     color: #ecf0f1;
   }
   
-  .content__container {
+  .content__container-loading {
     
     overflow: hidden;
     height: 45px;
@@ -32,43 +41,38 @@ body {
     
   }
   
-  .content__container:before {
+  .content__container-loading:before {
     left: 0;
     position: absolute;
     top: 0;
     font-size: 42px;
     line-height: 40px;
-    -webkit-animation-name: opacity;
-    -webkit-animation-duration: 2s;
-    -webkit-animation-iteration-count: infinite;
+
     animation-name: opacity;
-    animation-duration: 1s;
+    animation-duration: .5s;
     animation-iteration-count: infinite;
   }
   
-  .content__container:after {
+  .content__container-loading:after {
     
     right: 0;
     position: absolute;
     top: 0;
     font-size: 42px;
     line-height: 40px;
-    -webkit-animation-name: opacity;
-    -webkit-animation-duration: 2s;
-    -webkit-animation-iteration-count: infinite;
     animation-name: opacity;
-    animation-duration: 2s;
+    animation-duration: .5s;
     animation-iteration-count: infinite;
   }
   
-  .content__container__text1 {
+  .content__container__text1-loading {
     display: inline;
     float: left;
     margin: 0;
     color: #215732;
     font-weight:900 !important    ;
   }
-  .content__container__text2 {
+  .content__container__text2-loading {
     display: inline;
     float: right;
     margin: 0;
@@ -77,24 +81,24 @@ body {
     font-weight:900 !important    ;
   }
   
-  .content__container__list {
+  .content__container__list-loading {
     margin-top: 0;
     padding-left: 23px;
     text-align: left;
     list-style: none;
     animation-name: change;
-    animation-duration: 4s;
+    animation-duration: 2s;
     animation-iteration-count: infinite;
     color: rgb(134, 55, 55);
     font-weight:900 !important    ;
    
   }
   
-  .content__container__list__item{
+  .content__container__list__item-loading{
     line-height: 50px;
     /* margin: 5; */
   }
-  .content__container__list__item1{
+  .content__container__list__item1-loading{
     line-height: 50px;
     margin-left: 20px;
     

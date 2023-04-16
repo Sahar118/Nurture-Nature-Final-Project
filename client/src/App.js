@@ -19,16 +19,20 @@ import TRY from './pages/TRY.js';
 import ProtectsRoute from './components/ProtectsRoute.js';
 import { useSelector } from 'react-redux';
 import ReportsList from './pages/profile/ReportsList.js';
+import LoadingLogo from './components/LoadingLogo.js';
 
 function App() {
   const { loading } = useSelector((state) => state.loaders)
   return (
     <div>
-      {loading && (
-        <div className='loader-parent'>
-          <div className='loader'>
+      {!loading && (
+        <>
+          <div className='loader-parent'>
+            <LoadingLogo />
           </div>
-        </div>
+        </>
+        //   <div className='loader'>
+        //   </div>
       )}
       <BrowserRouter>
         <Routes>
