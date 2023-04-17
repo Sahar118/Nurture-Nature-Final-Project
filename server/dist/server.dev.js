@@ -65,7 +65,7 @@ io.on("connection", function (socket) {
   }); //  send message to client ( who are present in the members array )
 
   socket.on("send-message", function (message) {
-    if (message.members) {
+    if (message && message.members && message.members.length >= 2) {
       io.to(message.members[0]).to(message.members[1]).emit("receive-message", message);
     }
   });

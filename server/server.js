@@ -50,14 +50,14 @@ io.on("connection", (socket) => {
     })
     //  send message to client ( who are present in the members array )
     socket.on("send-message", (message) => {
-        if (message.members) {
+        if (message && message.members && message.members.length >= 2) {
             io.to(message.members[0])
                 .to(message.members[1])
                 .emit("receive-message", message);
         }
     });
-
 });
+
 // render deployment
 if (process.env.NODE_ENV === "production") {
     app.use(express.static(path.join(__dirname, "/client/build")));

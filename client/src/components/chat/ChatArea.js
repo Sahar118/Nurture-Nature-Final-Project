@@ -10,7 +10,7 @@ import moment from 'moment'
 import { BsCheckAll } from "react-icons/bs"
 import { SetAllChats } from '../../redux/usersSlice';
 import { ClearChatMessages } from '../../apicalls/chats';
-
+import store from '../../redux/store'
 
 const ChatArea = ({ socket }) => {
     const dispatch = useDispatch()
@@ -22,7 +22,6 @@ const ChatArea = ({ socket }) => {
     )
     const sendNewMessage = async () => {
         try {
-            dispatch(ShowLoading())
             const message = {
                 chat: selectedChat._id,
                 sender: user._id,
@@ -34,18 +33,14 @@ const ChatArea = ({ socket }) => {
                 members: selectedChat.members.map((mem) => mem._id),
                 createdAt: moment().format("DD-MM-YYYY hh:mm:ss"),
                 read: false,
-
             });
 
             //  send message to server to save in db 
-
             const response = await sendMessage(message);
-            dispatch(HideLoading())
             if (response.success) {
                 setNewMessage("")
             }
         } catch (error) {
-            dispatch(HideLoading())
             toast.error(error.message)
         }
     }
@@ -60,7 +55,6 @@ const ChatArea = ({ socket }) => {
         } catch (error) {
             dispatch(HideLoading());
             toast.error(error.message)
-
         }
     }
     const clearUnreadMessages = async () => {
@@ -80,7 +74,6 @@ const ChatArea = ({ socket }) => {
         } catch (error) {
             dispatch(HideLoading());
             toast.error(error.message)
-
         }
     }
     useEffect(() => {
@@ -90,7 +83,10 @@ const ChatArea = ({ socket }) => {
         }
         //  receive message from server using socket
         socket.on("receive-message", (message) => {
-            setMessages((prev) => [...prev, message])
+            const tempSelectedChat = store.getState().users.selectedChat;
+            if (tempSelectedChat._id === message.chat) {
+                setMessages((messages) => [...messages, message])
+            }
         })
         // eslint-disable-next-line
     }, [selectedChat])
