@@ -19,3 +19,14 @@ export const CreateNewChat = async (members) => {
         return error.message;
     }
 }
+
+export const ClearChatMessages = async (chatId) => {
+    try {
+        const response = await axiosInstance.post("/api/chats/clear-unread-messages", {
+            chat: chatId,
+        });
+        return response.data;
+    } catch (error) {
+        throw error;
+    }
+}

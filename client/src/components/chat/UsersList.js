@@ -63,15 +63,26 @@ const UsersList = ({ searchKey }) => {
             const lastMsgPerson = chat?.lastMessage?.sender === user._id ? "You :" : "";
             return (
                 <div>
-                    <h3>
+                    <h4>
                         {lastMsgPerson}  {chat.lastMessage.text}
-                    </h3>
+                    </h4>
                     <h5 className='chat-moment'>
                         {moment(chat?.lastMessage?.createdAt).format("hh:mm A")}
                     </h5>
                 </div>
             )
-
+        }
+    }
+    const getUnreadMessages = (userObj) => {
+        const chat = allChats.find((chat) =>
+            chat.members.map((mem) => mem._id).includes(userObj._id)
+        );
+        if (chat && chat?.lastMessage && chat?.lastMessage?.sender !== user._id) {
+            return (
+                <div className='num-unread-msg'>
+                    <h4> {chat.unreadMessages}</h4>
+                </div>
+            )
         }
     }
 
@@ -93,9 +104,17 @@ const UsersList = ({ searchKey }) => {
                                     // <div><h1> {userObj.name[0].toUpperCase()}</h1></div>
                                 )}
                                 <div className='column user-column'>
+                                    <div className='row space-between' >
+                                        <h4 className='user-obj-name'> {userObj.name} </h4>
+                                        <h5>
+                                            {getUnreadMessages(userObj)}
+                                        </h5>
+                                    </div>
+                                    <div>
+                                        <h5 className='get-last-message'> {getLastMsg(userObj)}</h5>
 
-                                    <h4 className='user-obj-name'> {userObj.name} </h4>
-                                    <h5 className='get-last-message'> {getLastMsg(userObj)}</h5>
+                                    </div>
+
 
                                 </div>
                             </div>

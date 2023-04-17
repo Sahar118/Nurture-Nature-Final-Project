@@ -90,5 +90,72 @@ router.get('/get-all-chats', authMiddleware, function _callee2(req, res) {
       }
     }
   }, null, null, [[0, 7]]);
+}); // clear all unread messages of a chat
+
+router.post("/clear-unread-messages", authMiddleware, function _callee3(req, res) {
+  var chat, updatedChat;
+  return regeneratorRuntime.async(function _callee3$(_context3) {
+    while (1) {
+      switch (_context3.prev = _context3.next) {
+        case 0:
+          _context3.prev = 0;
+          _context3.next = 3;
+          return regeneratorRuntime.awrap(Chat.findById(req.body.chat));
+
+        case 3:
+          chat = _context3.sent;
+
+          if (chat) {
+            _context3.next = 6;
+            break;
+          }
+
+          return _context3.abrupt("return", res.send({
+            success: false,
+            message: "Chat not found"
+          }));
+
+        case 6:
+          _context3.next = 8;
+          return regeneratorRuntime.awrap(Chat.findByIdAndUpdate(req.body.chat, {
+            unreadMessages: 0
+          }, {
+            "new": true
+          }).populate("members").populate("lastMessage"));
+
+        case 8:
+          updatedChat = _context3.sent;
+          _context3.next = 11;
+          return regeneratorRuntime.awrap(Message.updateMany({
+            chat: req.body.chat,
+            read: false
+          }, {
+            read: true
+          }));
+
+        case 11:
+          res.send({
+            success: true,
+            message: "Unread messages cleared successfully",
+            data: updatedChat
+          });
+          _context3.next = 17;
+          break;
+
+        case 14:
+          _context3.prev = 14;
+          _context3.t0 = _context3["catch"](0);
+          res.send({
+            success: false,
+            message: "Error clearing unread messages",
+            error: _context3.t0.message
+          });
+
+        case 17:
+        case "end":
+          return _context3.stop();
+      }
+    }
+  }, null, null, [[0, 14]]);
 });
 module.exports = router;

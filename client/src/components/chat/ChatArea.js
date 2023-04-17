@@ -7,12 +7,16 @@ import { HideLoading, ShowLoading } from '../../redux/loaderSlice';
 import { toast } from 'react-toastify';
 import { GetMessages, sendMessage } from '../../apicalls/messages'
 import moment from 'moment'
+import { BsCheckAll } from "react-icons/bs"
+import { SetAllChats } from '../../redux/usersSlice';
+import { ClearChatMessages } from '../../apicalls/chats';
+
 
 const ChatArea = () => {
     const dispatch = useDispatch()
     const [newMessage, setNewMessage] = useState("")
     const [messages, setMessages] = useState([])
-    const { selectedChat, user } = useSelector((state) => state.users)
+    const { selectedChat, user, allChats } = useSelector((state) => state.users)
     const recipientUser = selectedChat.members.find(
         (mem) => mem._id !== user._id
     )
@@ -48,8 +52,31 @@ const ChatArea = () => {
 
         }
     }
+    const clearUnreadMessages = async () => {
+        try {
+            dispatch(ShowLoading());
+            const response = await ClearChatMessages(selectedChat._id);
+            dispatch(HideLoading());
+            if (response.success) {
+                const updatedChats = allChats.map((chat) => {
+                    if (chat._id === selectedChat._id) {
+                        return response.data
+                    }
+                    return chat
+                })
+                dispatch(SetAllChats(updatedChats))
+            }
+        } catch (error) {
+            dispatch(HideLoading());
+            toast.error(error.message)
+
+        }
+    }
     useEffect(() => {
         getMessages();
+        if (selectedChat.lastMessage.sender !== user._id) {
+            clearUnreadMessages();
+        }
         // eslint-disable-next-line
     }, [selectedChat])
     return (
@@ -75,12 +102,14 @@ const ChatArea = () => {
                     {messages.map((message) => {
                         const isCurrentUserIsSender = message.sender === user._id;
                         return (
+
                             <div className={`flex ${isCurrentUserIsSender && 'justify-end'}`}>
                                 <div className='column'>
                                     <h3
                                         className={`${isCurrentUserIsSender ? "bg-sender" : "bg-recipient"
                                             }`}>{message.text}</h3>
                                     <h5> {moment(message.createdAt).format("hh:mm A")}</h5>   </div>
+                                {isCurrentUserIsSender && <BsCheckAll className={`${message.read ? "text-green" : "text-brown"}`} />}
                             </div>
                         )
                     })}

@@ -226,4 +226,31 @@ color: brown;
   color:#215732;
   position: relative;
   right: -9rem;
+  bottom: .5rem;
 }
+
+.row{
+  display: flex;
+  flex-direction: row;
+  width: 15vw;
+}
+
+.space-between{
+  justify-content: space-between;
+}
+
+.num-unread-msg{
+  background-color: brown;
+  padding: .15rem .65rem;
+color: #fff;
+  border-radius: 50%;
+}
+
+.text-green{
+  color:#0d9237;
+}
+
+.text-brown{
+  color:grey;
+}
+
