@@ -62,16 +62,12 @@ io.on("connection", function (socket) {
   // socket events (new messages) will be here
   socket.on("join-room", function (userId) {
     socket.join(userId);
-  }); // send message to recipient
+  }); //  send message to client ( who are present in the members array )
 
-  socket.on("send-message", function (_ref) {
-    var text = _ref.text,
-        sender = _ref.sender,
-        recipient = _ref.recipient;
-    io.to(recipient).emit("receive-message", {
-      text: text,
-      sender: sender
-    });
+  socket.on("send-message", function (message) {
+    if (message.members) {
+      io.to(message.members[0]).to(message.members[1]).emit("receive-message", message);
+    }
   });
 }); // render deployment
 

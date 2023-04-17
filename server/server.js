@@ -48,15 +48,15 @@ io.on("connection", (socket) => {
     socket.on("join-room", (userId) => {
         socket.join(userId)
     })
-
-
-    // send message to recipient
-    socket.on("send-message", ({ text, sender, recipient }) => {
-        io.to(recipient).emit("receive-message", {
-            text,
-            sender,
-        })
+    //  send message to client ( who are present in the members array )
+    socket.on("send-message", (message) => {
+        if (message.members) {
+            io.to(message.members[0])
+                .to(message.members[1])
+                .emit("receive-message", message);
+        }
     });
+
 });
 // render deployment
 if (process.env.NODE_ENV === "production") {

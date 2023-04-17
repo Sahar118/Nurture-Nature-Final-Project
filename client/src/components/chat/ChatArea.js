@@ -28,6 +28,17 @@ const ChatArea = ({ socket }) => {
                 sender: user._id,
                 text: newMessage,
             };
+            //  send message to server using socket
+            socket.emit("send-message", {
+                ...message,
+                members: selectedChat.members.map((mem) => mem._id),
+                createdAt: moment().format("DD-MM-YYYY hh:mm:ss"),
+                read: false,
+
+            });
+
+            //  send message to server to save in db 
+
             const response = await sendMessage(message);
             dispatch(HideLoading())
             if (response.success) {
@@ -74,11 +85,21 @@ const ChatArea = ({ socket }) => {
     }
     useEffect(() => {
         getMessages();
-        // if (selectedChat.lastMessage.sender !== user._id) {
-        clearUnreadMessages();
-        // }
+        if (selectedChat?.lastMessage?.sender !== user._id) {
+            clearUnreadMessages();
+        }
+        //  receive message from server using socket
+        socket.on("receive-message", (message) => {
+            setMessages((prev) => [...prev, message])
+        })
         // eslint-disable-next-line
     }, [selectedChat])
+
+    useEffect(() => {
+        //  always scroll to bottom for messages id
+        const messagesContainer = document.getElementById("messages")
+        messagesContainer.scrollTop = messagesContainer.scrollHeight
+    })
     return (
         <div className='chat-area-container box-shadow'>
             {/* recipient user */}
@@ -97,7 +118,8 @@ const ChatArea = ({ socket }) => {
                 <hr></hr>
             </div>
             {/* chat message */}
-            <div className='chat-message-area-container'>
+            <div className='chat-message-area-container'
+                id='messages'>
                 <div className='column'>
                     {messages.map((message) => {
                         const isCurrentUserIsSender = message.sender === user._id;

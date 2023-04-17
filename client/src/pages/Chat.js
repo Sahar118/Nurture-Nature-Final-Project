@@ -4,18 +4,12 @@ import ChatArea from '../components/chat/ChatArea'
 import UsersList from '../components/chat/UsersList';
 import { useSelector } from 'react-redux';
 import { io } from 'socket.io-client'
+const socket = io("http://localhost:5000/")
 
 const Chat = () => {
-    const socket = io("http://localhost:5000/")
     const [searchKey, setSearchKey] = useState("");
     const { selectedChat, user } = useSelector((state) => state.users)
 
-    // useEffect(() => {
-    //     socket.emit("send-new-message-to-all", { message: "Hi from Sahar!" })
-    //     socket.on("new-message-from-server", (data) => {
-    //         console.log(data);
-    //     })
-    // }, [])
 
     useEffect(() => {
         //  join room
