@@ -89,6 +89,8 @@ height: 12vh;
   border: none;
   background-color: #fff;
   font-weight: 900;
+  margin-left: -4vw;
+  margin-top: 2vh;
 }
 
 .chat-area-container{
@@ -247,10 +249,15 @@ color: #fff;
 }
 
 .text-green{
-  color:#0d9237;
+  color:lightgreen;
+  height: 5vh;
+  width: 2vw;
+
 }
 
 .text-brown{
-  color:grey;
+  color:black;
+  height: 5vh;
+  width: 2vw;
 }
 

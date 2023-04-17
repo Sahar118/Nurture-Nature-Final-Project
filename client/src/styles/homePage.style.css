@@ -7,7 +7,6 @@
 .airplane{
     z-index: 999999999999;
     position: absolute;
-    opacity: 0.8;
     width: 12vw;
     top: -7vh;
     transform:scaleX(100%);
@@ -196,7 +195,7 @@
     left: -5vw;
     top: 33vh;
     z-index: 9999;
-    opacity: 0.8;
+
     transform:scaleX(100%);
     animation: animate1 10s infinite ease-in-out;
 }
@@ -208,18 +207,6 @@
     left: 1vw;
 
 }
-/* 25%{
-    top: 33vh;
-    left:  25vw;
-}
-50%{
-    top: 30vh;
-    left:  50vw;
-}
-75%{
-    top: 26vh;
-    left:  60vw;
-} */
 100%{
     top: 35vh;
     left:  68vw;
@@ -231,7 +218,6 @@
     height: 18vh;
     top: 42vh;
     left:39vw;
-    opacity: 0.7;
     transform:scaleY(100%);
     animation: animate2 1s infinite ease-in-out;
 }
@@ -242,7 +228,6 @@
     height: 18vh;
     top: 42vh;
     left:46vw;
-    opacity: 0.7;
     transform:scaleY(100%);
     animation: animate2 2s infinite ease-in-out;
 
@@ -253,7 +238,6 @@
     height: 18vh;
     left: 60vh;
     top: 42vh;
-    opacity: 0.7;
     transform:scaleY(100%);
     animation: animate2 1s infinite ease-in-out;
 }

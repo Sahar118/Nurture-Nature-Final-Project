@@ -21,6 +21,7 @@
     "react-scripts": "5.0.1",
     "react-stripe-checkout": "^2.6.3",
     "redux": "^4.2.1",
+    "socket.io-client": "^4.6.1",
     "web-vitals": "^2.1.4",
     "webpack-dev-server": "^4.13.2"
   },

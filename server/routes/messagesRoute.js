@@ -1,25 +1,25 @@
-const router = require('express').Router();
-const authMiddleware = require('../middlewares/authMiddleware');
-const Chat = require('../models/chatModels')
-const Message = require('../models/messageModel')
+const router = require("express").Router();
+const Chat = require("../models/chatModels");
+const Message = require("../models/messageModel");
+const authMiddleware = require("../middlewares/authMiddleware");
 
-//  new message
-router.post('/new-message', async (req, res) => {
+// new message
+
+router.post("/new-message", async (req, res) => {
     try {
-        //  Store Message
+        // store message
         const newMessage = new Message(req.body);
-        const savedMessage = await newMessage.save()
+        const savedMessage = await newMessage.save();
 
-        //update last message of chat 
+        // update last message of chat
         await Chat.findOneAndUpdate(
             { _id: req.body.chat },
             {
                 lastMessage: savedMessage._id,
-                unreadMessages: {
-                    $inc: 1,
-                },
+                $inc: { unreadMessages: 1 },
             }
         );
+
         res.send({
             success: true,
             message: "Message sent successfully",
@@ -28,30 +28,31 @@ router.post('/new-message', async (req, res) => {
     } catch (error) {
         res.send({
             success: false,
-            message: " Error sending Message",
-            error: error.message
+            message: "Error sending message",
+            error: error.message,
         });
     }
-})
+});
 
-// Get All Messages of a chat:
-router.get('/get-all-messages/:chatId', authMiddleware, async (req, res) => {
+// get all messages of a chat
+
+router.get("/get-all-messages/:chatId", async (req, res) => {
     try {
         const messages = await Message.find({
             chat: req.params.chatId,
         }).sort({ createdAt: 1 });
         res.send({
             success: true,
-            message: "Message sent successfully",
+            message: "Messages fetched successfully",
             data: messages,
         });
     } catch (error) {
         res.send({
             success: false,
-            message: " Error Fetching Messages",
-            error: error.message
+            message: "Error fetching messages",
+            error: error.message,
         });
     }
-})
+});
 
 module.exports = router;

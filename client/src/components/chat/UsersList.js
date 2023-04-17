@@ -43,9 +43,15 @@ const UsersList = ({ searchKey }) => {
         }
     }
     const getData = () => {
-        return allUsers
-            .filter((userObj) => (userObj.name.toLowerCase().includes(searchKey.toLowerCase())
-                && searchKey) || allChats.some((chat) => chat.members.map((mem) => mem._id).includes(userObj._id)))
+        if (searchKey === "") {
+            return allChats;
+        }
+        return allUsers.filter((user) => user.name.toLowerCase().includes(searchKey.toLowerCase()))
+        // return allUsers
+        //     .filter((userObj) => (userObj.name.toLowerCase().includes(searchKey.toLowerCase())
+        //         && searchKey) || allChats.some((chat) => chat.members.map((mem) => mem._id).includes(userObj._id)))
+
+
     }
     const getIsSelectedChatOrNot = (userObj) => {
         if (selectedChat) {
@@ -89,7 +95,14 @@ const UsersList = ({ searchKey }) => {
     return (
         <div className='users-list-container'>
             {getData()
-                .map((userObj) => {
+                .map((chatObjOrUserObj) => {
+                    let userObj = chatObjOrUserObj;
+
+                    if (chatObjOrUserObj.members) {
+                        userObj = chatObjOrUserObj.members.find(
+                            (mem) => mem._id !== user._id
+                        )
+                    }
                     return (
                         <div className={`box-shadow user-list-container pointer ${getIsSelectedChatOrNot(userObj) && "selected-user-or-not"}`}
                             key={userObj._id}

@@ -13,7 +13,7 @@ export const GetAllChats = async () => {
 // create new chat 
 export const CreateNewChat = async (members) => {
     try {
-        const response = await axiosInstance.post('/api/chats/create-new-chat', { members });
+        const response = await axiosInstance.post('/api/chats/create-new-chat', { members, });
         return response.data;
     } catch (error) {
         return error.message;

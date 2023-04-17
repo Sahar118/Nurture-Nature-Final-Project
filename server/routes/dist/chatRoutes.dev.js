@@ -1,15 +1,15 @@
 "use strict";
 
-var router = require('express').Router();
+var router = require("express").Router();
 
-var authMiddleware = require('../middlewares/authMiddleware');
+var Chat = require("../models/chatModels");
 
-var Chat = require('../models/chatModels');
+var Message = require("../models/messageModel");
 
-var Message = require('../models/messageModel'); // Create new chat
+var authMiddleware = require("../middlewares/authMiddleware"); // create a new chat
 
 
-router.post('/create-new-chat', authMiddleware, function _callee(req, res) {
+router.post("/create-new-chat", authMiddleware, function _callee(req, res) {
   var newChat, savedChat;
   return regeneratorRuntime.async(function _callee$(_context) {
     while (1) {
@@ -28,7 +28,7 @@ router.post('/create-new-chat', authMiddleware, function _callee(req, res) {
         case 7:
           res.send({
             success: true,
-            message: 'Chat created Successfully',
+            message: "Chat created successfully",
             data: savedChat
           });
           _context.next = 13;
@@ -39,7 +39,7 @@ router.post('/create-new-chat', authMiddleware, function _callee(req, res) {
           _context.t0 = _context["catch"](0);
           res.send({
             success: false,
-            message: 'Error creating Chat ',
+            message: "Error creating chat",
             error: _context.t0.message
           });
 
@@ -49,9 +49,9 @@ router.post('/create-new-chat', authMiddleware, function _callee(req, res) {
       }
     }
   }, null, null, [[0, 10]]);
-}); //  get all chat of current user
+}); // get all chats of current user
 
-router.get('/get-all-chats', authMiddleware, function _callee2(req, res) {
+router.get("/get-all-chats", authMiddleware, function _callee2(req, res) {
   var chats;
   return regeneratorRuntime.async(function _callee2$(_context2) {
     while (1) {
@@ -71,7 +71,7 @@ router.get('/get-all-chats', authMiddleware, function _callee2(req, res) {
           chats = _context2.sent;
           res.send({
             success: true,
-            message: " Chats fetched successfully",
+            message: "Chats fetched successfully",
             data: chats
           });
           _context2.next = 10;
@@ -82,7 +82,7 @@ router.get('/get-all-chats', authMiddleware, function _callee2(req, res) {
           _context2.t0 = _context2["catch"](0);
           res.send({
             success: false,
-            message: " Error fetching chats",
+            message: "Error fetching chats",
             error: _context2.t0.message
           });
 
