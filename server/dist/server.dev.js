@@ -31,6 +31,16 @@ var chatsRoute = require("./routes/chatRoutes");
 var messagesRoute = require('./routes/messagesRoute');
 
 app.use(express.json());
+
+var server = require("http").createServer(app);
+
+var io = require("socket.io")(server, {
+  cors: {
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST"]
+  }
+});
+
 app.use("/api/users", usersRoute);
 app.use("/api/events", eventsRoute);
 app.use("/api/reports", reportsRoute);
@@ -40,7 +50,30 @@ var port = process.env.PORT || 5000;
 
 var path = require("path");
 
-__dirname = path.resolve(); // render deployment
+var _require = require('socket.io'),
+    socket = _require.socket;
+
+var _require2 = require('console'),
+    log = _require2.log;
+
+__dirname = path.resolve(); //  check the connection of socket  from client
+
+io.on("connection", function (socket) {
+  // socket events (new messages) will be here
+  socket.on("join-room", function (userId) {
+    socket.join(userId);
+  }); // send message to recipient
+
+  socket.on("send-message", function (_ref) {
+    var text = _ref.text,
+        sender = _ref.sender,
+        recipient = _ref.recipient;
+    io.to(recipient).emit("receive-message", {
+      text: text,
+      sender: sender
+    });
+  });
+}); // render deployment
 
 if (process.env.NODE_ENV === "production") {
   app.use(express["static"](path.join(__dirname, "/client/build")));
@@ -49,6 +82,6 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-app.listen(port, function () {
+server.listen(port, function () {
   return console.log("node JS Server is running on port ".concat(port));
 });

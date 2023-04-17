@@ -12,7 +12,7 @@ import { SetAllChats } from '../../redux/usersSlice';
 import { ClearChatMessages } from '../../apicalls/chats';
 
 
-const ChatArea = () => {
+const ChatArea = ({ socket }) => {
     const dispatch = useDispatch()
     const [newMessage, setNewMessage] = useState("")
     const [messages, setMessages] = useState([])
