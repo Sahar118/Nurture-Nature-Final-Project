@@ -28,8 +28,8 @@ router.post('/new-message', function _callee(req, res) {
             _id: req.body.chat
           }, {
             lastMessage: savedMessage._id,
-            $inc: {
-              unreadMessages: 1
+            unreadMessages: {
+              $inc: 1
             }
           }));
 

@@ -74,9 +74,9 @@ const ChatArea = () => {
     }
     useEffect(() => {
         getMessages();
-        if (selectedChat.lastMessage.sender !== user._id) {
-            clearUnreadMessages();
-        }
+        // if (selectedChat.lastMessage.sender !== user._id) {
+        clearUnreadMessages();
+        // }
         // eslint-disable-next-line
     }, [selectedChat])
     return (

@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const authMiddleware = require('../middlewares/authMiddleware');
 const Chat = require('../models/chatModels')
-
+const Message = require('../models/messageModel')
 // Create new chat
 router.post('/create-new-chat', authMiddleware, async (req, res) => {
     try {

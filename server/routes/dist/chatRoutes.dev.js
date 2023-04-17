@@ -4,7 +4,9 @@ var router = require('express').Router();
 
 var authMiddleware = require('../middlewares/authMiddleware');
 
-var Chat = require('../models/chatModels'); // Create new chat
+var Chat = require('../models/chatModels');
+
+var Message = require('../models/messageModel'); // Create new chat
 
 
 router.post('/create-new-chat', authMiddleware, function _callee(req, res) {
