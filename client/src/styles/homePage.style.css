@@ -14,12 +14,12 @@
 }
 @keyframes animate3{
     0%{
-        top: -7vh;
+        top: -5vh;
         left: 1vw;
     }
     100%{
-        top:-7vh;
-        left: 87vw;
+        top:-5vh;
+        left: 82vw;
     }
     } 
 .cloud1{

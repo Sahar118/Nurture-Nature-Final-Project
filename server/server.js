@@ -56,7 +56,15 @@ io.on("connection", (socket) => {
                 .emit("receive-message", message);
         }
     });
+
+    //  clear unread messages
+    socket.on("clear-unread-messages", (data) => {
+        io.to(data.members[0])
+            .to(data.members[1])
+            .emit("unread-messages-cleared", data)
+    })
 });
+
 
 // render deployment
 if (process.env.NODE_ENV === "production") {

@@ -68,6 +68,10 @@ io.on("connection", function (socket) {
     if (message && message.members && message.members.length >= 2) {
       io.to(message.members[0]).to(message.members[1]).emit("receive-message", message);
     }
+  }); //  clear unread messages
+
+  socket.on("clear-unread-messages", function (data) {
+    io.to(data.members[0]).to(data.members[1]).emit("unread-messages-cleared", data);
   });
 }); // render deployment
 

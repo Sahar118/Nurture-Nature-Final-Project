@@ -59,6 +59,10 @@ const ChatArea = ({ socket }) => {
     }
     const clearUnreadMessages = async () => {
         try {
+            socket.emit("clear-unread-messages", {
+                chat: selectedChat._id,
+                members: selectedChat.members.map((mem) => mem._id)
+            })
             dispatch(ShowLoading());
             const response = await ClearChatMessages(selectedChat._id);
             dispatch(HideLoading());
@@ -86,6 +90,37 @@ const ChatArea = ({ socket }) => {
             const tempSelectedChat = store.getState().users.selectedChat;
             if (tempSelectedChat._id === message.chat) {
                 setMessages((messages) => [...messages, message])
+            }
+            if (tempSelectedChat._id === message.chat && message.sender === user._id) {
+                clearUnreadMessages()
+            }
+        })
+        // clear unread message from server using socket
+        socket.on("unread-messages-cleared", (data) => {
+            const tempAllChats = store.getState().users.allChats;
+            const tempSelectedChat = store.getState().users.selectedChat;
+            if (data.chat === tempSelectedChat._id) {
+                //  update unreadMessages count in selected chat 
+                const updatedChats = tempAllChats.map((chat) => {
+                    if (chat._id === data.chat) {
+                        return {
+                            ...chat,
+                            unreadMessages: 0,
+                        }
+                    }
+                    return chat;
+                });
+                dispatch(SetAllChats(updatedChats));
+                //  set all messages as read 
+
+                setMessages(prevMessages => {
+                    return prevMessages.map(message => {
+                        return {
+                            ...message,
+                            read: true,
+                        }
+                    })
+                })
             }
         })
         // eslint-disable-next-line
