@@ -40,7 +40,7 @@ const Chat = () => {
                 />
                 <UsersList
                     searchKey={searchKey}
-
+                    socket={socket}
                 />
             </div>
             {/* chatBox */}

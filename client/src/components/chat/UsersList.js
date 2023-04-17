@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import profilePicture from '../../assest/profile-pic.webp'
 import '../../styles/chat.style.css'
@@ -8,8 +8,10 @@ import { SetAllChats, SetSelectedChat } from '../../redux/usersSlice';
 import { toast } from 'react-hot-toast';
 import { CreateNewChat } from '../../apicalls/chats'
 import moment from 'moment';
+import store from '../../redux/store';
 
-const UsersList = ({ searchKey }) => {
+
+const UsersList = ({ searchKey, socket }) => {
     const { allUsers, allChats, user, selectedChat } = useSelector((state) => state.users);
     const dispatch = useDispatch();
 
@@ -92,6 +94,36 @@ const UsersList = ({ searchKey }) => {
         }
     }
 
+    useEffect(() => {
+        socket.on("receive-message", (message) => {
+            // if the chat area opened is not equal to chat in message , then increase unread messages by 1 and update last message
+            const tempSelectedChat = store.getState().users.selectedChat;
+            let tempAllChats = store.getState().users.allChats;
+            if (tempSelectedChat?._id !== message.chat) {
+                const updatedAllChats = tempAllChats.map((chat) => {
+                    if (chat._id === message.chat) {
+                        return {
+                            ...chat,
+                            unreadMessages: (chat?.unreadMessages || 0) + 1,
+                            lastMessage: message,
+                            updatedAt: message.createdAt,
+                        };
+                    }
+                    return chat;
+                });
+                tempAllChats = updatedAllChats;
+            }
+
+            // always latest message chat will be on top
+            const latestChat = tempAllChats.find((chat) => chat._id === message.chat);
+            const otherChats = tempAllChats.filter(
+                (chat) => chat._id !== message.chat
+            );
+            tempAllChats = [latestChat, ...otherChats];
+            dispatch(SetAllChats(tempAllChats));
+        });
+        // eslint-disable-next-line
+    }, []);
     return (
         <div className='users-list-container'>
             {getData()
