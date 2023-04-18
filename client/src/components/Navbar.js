@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import '../styles/navbar.style.css'
-const Navbar = () => {
+export default function Navbar() {
     return (
         <>
             <div className='middle-navbar '>
@@ -25,6 +25,6 @@ const Navbar = () => {
     )
 }
 
-export default Navbar
+
 
 

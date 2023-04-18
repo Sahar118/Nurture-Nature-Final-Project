@@ -573,3 +573,23 @@ left: 12vw;
   height: 90vh;
   width: 70vw;
 }
+
+/* *********Humburger */
+
+.hamburger{
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: space-around;
+flex-flow: column nowrap;
+z-index: 10;
+}
+
+.burger{
+  width: 2rem;
+  height: .25rem;
+  border-radius: 10px;
+  background-color: #215732;
+  transform-origin: 1px;
+  transition: all 0.3s linear;
+}
