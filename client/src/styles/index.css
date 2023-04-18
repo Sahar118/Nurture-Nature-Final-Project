@@ -423,26 +423,45 @@ textarea{
 .title-design{
   text-align: center;
 }
-
-
 .box{
-  height:600px;
-  width: 600px;
-  margin:  100px auto;
+  height:70vh;
+  width: 70%;
+  margin: auto;
   text-align: center;
   line-height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 }
 
+.margin-top-2rem{
+  margin-top: 2rem;
+}
+.img-box{
+  width: 50vw;
+  height: 72.5%;
+}
+.event-title-id{
+font-size: 3rem;
+margin-left: 9rem;
+color: #215732;
+}
 .hand{
   height: 20px;
   width: 300px;
+  position: relative;
+  left: -9rem;
 }
 
 .row{
   display: flex;
   flex-direction: row;
 }
-
+.num{
+  position: relative;
+  left: -17rem;
+  top:-.25rem;
+}
 .box-register{
   height: 80vh;
   width: 60vw;
@@ -490,33 +509,10 @@ transform: rotate(15deg);
   position:absolute;
   top: 120px;
   left: 670px;
-/* transform:scaleX(100%);
-animation: birdLogin 10s infinite ease-in-out; */
 right: 100px;
 z-index: 2;
-
 }
 
-/* @keyframes birdLogin{
-
-0%{
-top: 500px;
-left: 670px;
-}
-25%{
-top: 110px;
-} 
-50%{
-top: 220px;
-}
-75%{
-top:120px;
-} 
-100%{
-top:180px;
-left: 100px;
-}
-}  */
 
 .login-padding-top{
   position: absolute;
@@ -537,7 +533,6 @@ Form{
 .login-height{
   position: absolute;
   line-height: 60px;
-
 }
 
 .district-container{
@@ -547,7 +542,6 @@ Form{
   justify-content: center;
   align-items: center;
 }
-
 .north-container,
 .central-container,
 .southern-container
@@ -561,19 +555,21 @@ Form{
 .central-container{
 padding-inline: 5vw;
 top: 38vh;
-left: 13vw;
+left: 12vw;
 }
-
 .north-container{
   top: 22vh;
   left: 22vw;
 }
 .southern-container{
-  top: 70vh;
-  left: 18vw;
-
+  top: 75vh;
+  left: 16vw;
 }
+
 .israelMap{
   position: relative;
   right: 30vw;
+  top: -8vh;
+  height: 90vh;
+  width: 70vw;
 }

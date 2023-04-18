@@ -143,7 +143,6 @@ const ChatArea = ({ socket }) => {
                         <img src={profilePicture} alt='profile-pic' className='profile-pic top-3' />
                         // <div><h1> {userObj.name[0].toUpperCase()}</h1></div>
                     )}
-
                     <h2 className='name-title-chat'>{recipientUser.name}</h2>
                 </div>
                 <hr></hr>

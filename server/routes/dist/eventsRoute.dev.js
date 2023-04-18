@@ -220,7 +220,7 @@ router.get('/get-event-by-district/:district', function _callee6(req, res) {
   }, null, null, [[0, 7]]);
 }); // Save event by id
 
-router.post('/saved-event/:id', authMiddleware, function _callee7(req, res) {
+router.post('/saved-event/:id', function _callee7(req, res) {
   var id, event;
   return regeneratorRuntime.async(function _callee7$(_context7) {
     while (1) {

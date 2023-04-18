@@ -49,8 +49,10 @@
 }
 .search-icon-chat{
     position: absolute;
-    left: 7vw;
+    left: 6vw;
     top: 12.8vh;
+    height: 3vh;
+    width: 2vw;
     color: brown;
 }
 
@@ -94,10 +96,8 @@ height: 12vh;
 }
 
 .chat-area-container{
-  /* background-color: yellowgreen; */
   margin-top: 2rem;
   margin-right: 1rem;
-  /* position: relative; */
   height: 74vh;
   width: 69vw;
   border-radius: 1rem;
@@ -107,16 +107,9 @@ height: 12vh;
   padding: 2rem;
 }
 
-.selected-user-or-not{
-  /* color:#215732; */
-  /* border: 2px solid brown; */
-}
-
 .recipient-user-container{
   display: flex;
-  /* background-color: yellowgreen; */
   height: 5vh;
-  /* padding-left: 3vw; */
 }
 
 .recipient-user-container:focus{
@@ -129,6 +122,7 @@ text-transform: uppercase;
 font-weight: 900 !important;
 margin-top: -1rem;
 margin-left: 1vw;
+
 }
 
 .chat-area-icon{
@@ -210,6 +204,8 @@ height: inherit;
 .chat-message-area-container{
   overflow-y: scroll;
   margin: 1rem;
+  position: relative;
+
 }
 .user-obj-name{
 color: #215732;
@@ -239,6 +235,7 @@ color: brown;
 
 .space-between{
   justify-content: space-between;
+  width: 100%;
 }
 
 .num-unread-msg{
@@ -261,3 +258,34 @@ color: #fff;
   width: 2vw;
 }
 
+@media (min-width:1300px) {
+  .chat-area-container{
+  position: relative;
+  right: -12vw;
+  top: 2.5vh;
+  }
+  .search-icon-chat{
+    left: 8vw;
+    top: 10vh;
+    height: 2vh;
+    width: 2vw;
+    color: brown;
+  }
+  .user-list-container{
+  height: 7vh;
+  }
+  .user-column{
+    line-height: 2rem;
+    width: 20vw;
+  }
+  .user-obj-name{
+    font-size: 25px;
+  }
+  .get-last-message{
+    font-size: 20px;
+  }
+  .chat-moment{
+    right: -17vw;
+    bottom: 1vh;
+  }
+}

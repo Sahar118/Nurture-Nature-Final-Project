@@ -2,14 +2,15 @@ import React, { useEffect, useState } from 'react'
 import { GetEventById, saveEvent } from '../apicalls/events'
 import { message } from 'antd'
 import { useDispatch } from 'react-redux'
-import { Link, useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { HideLoading, ShowLoading } from '../redux/loaderSlice';
 import { BsHandThumbsUp } from 'react-icons/bs'
 import moment from 'moment'
-
+import { IoMdArrowRoundBack } from "react-icons/io";
 
 const AboutTheEvent = () => {
     const params = useParams()
+    const navigate = useNavigate()
     const dispatch = useDispatch()
     const [event, setEvent] = useState([])
 
@@ -51,33 +52,34 @@ const AboutTheEvent = () => {
     }, [])
     return (
         <>
-            <Link to='/events'>
-                Back
-            </Link>
-            <h1>
-                AboutTheEvent
-            </h1>
+            <div className='top-container'>
+                <button className='back-to-events pointer'
+                    onClick={() => navigate(`/events`)}> <IoMdArrowRoundBack className='back-icon' /> Back</button>
+            </div>
             <div className='box-shadow box'>
                 {event && < div className='column' >
+                    <div> <h2 className='event-title-id'> {event.title} </h2> </div>
+                    <div className='row margin-top-2rem'>
+                        <img src={event.poster} alt='poster' className='img-box' />
+                        <div className='description-container'>
+                            <p className='p-description'><strong>Description: </strong>
+                                {event.description}
+                                <br></br>
+                                <strong> Date:</strong>  {moment(event.date).format("DD-MM-YYYY")}
+                                <br></br>
+                                AT:{moment(event.time).format("hh:mm:ss")} O'clock
+                                <br></br>
+                                Duration : {event.duration} (h)
 
-                    <h2>
-                        {event.title}
-                    </h2>
-                    <img src={event.poster} alt='poster' />
-                    <p>
-                        {event.description}
-                    </p>
+                                <div className='row'>
+                                    <div><BsHandThumbsUp onClick={() => { saveEventByClick(event._id) }} className='pointer hand' />
+                                    </div>
+                                    <div className='num'>{event.SaveEvent}
+                                    </div>
+                                </div>
+                            </p>
 
-                    <h3>
-                        Date:  {moment(event.date).format("DD-MM-YYYY")}
-                    </h3>
-                    <h3>
-                        AT:{moment(event.time).format("HH:MM")} O'clock
-                    </h3>
-                    <h3> Duration : {event.duration} (h)</h3>
-                    <div className='row' >
-                        <BsHandThumbsUp onClick={() => { saveEventByClick(event._id) }} className='pointer hand' />
-                        <p> {event.SaveEvent}</p>
+                        </div>
                     </div>
                 </div >}
             </div>

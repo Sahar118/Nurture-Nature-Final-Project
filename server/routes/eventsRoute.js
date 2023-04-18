@@ -103,7 +103,7 @@ router.get('/get-event-by-district/:district', async (req, res) => {
 
 
 // Save event by id
-router.post('/saved-event/:id', authMiddleware, async (req, res) => {
+router.post('/saved-event/:id', async (req, res) => {
     try {
         const { id } = req.params;
         if (!mongoose.Types.ObjectId.isValid(id)) {

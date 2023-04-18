@@ -15,7 +15,6 @@ import {
   EventInCenteral,
   EventsInNorth
 } from './pages/index.js'
-import TRY from './pages/TRY.js';
 import ProtectsRoute from './components/ProtectsRoute.js';
 import { useSelector } from 'react-redux';
 import ReportsList from './pages/profile/ReportsList.js';
@@ -38,7 +37,6 @@ function App() {
           <Route path='/events' element={<ProtectsRoute><Events /> </ProtectsRoute>} />
           <Route path='/event/:id' element={<ProtectsRoute><AboutTheEvent /> </ProtectsRoute>} />
           <Route path='/event/by-district' element={<ProtectsRoute><GetEventByDistrict /> </ProtectsRoute>} />
-          <Route path='/event/:district' element={<ProtectsRoute><TRY /> </ProtectsRoute>} />
           <Route path='/event/saved-event' element={<ProtectsRoute><SavedEvents /> </ProtectsRoute>} />
           <Route path='/events/north' element={<ProtectsRoute><EventsInNorth /> </ProtectsRoute>} />
           <Route path='/events/central' element={<ProtectsRoute><EventInCenteral /> </ProtectsRoute>} />

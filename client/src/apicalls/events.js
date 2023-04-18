@@ -51,9 +51,26 @@ export const GetEventById = async (id) => {
     }
 }
 
-export const GetAllEventsByDistrict = async (district) => {
+export const GetAllEventsBySouthern = async (southern) => {
     try {
-        const response = await axiosInstance.get(`/api/events/get-event-by-district/${district}`);
+        const response = await axiosInstance.get(`/api/events/get-event-by-district/southern`);
+        return response.data;
+    } catch (error) {
+        return error.message;
+    }
+}
+
+export const GetAllEventsByNorth = async (north) => {
+    try {
+        const response = await axiosInstance.get(`/api/events/get-event-by-district/north`);
+        return response.data;
+    } catch (error) {
+        return error.message;
+    }
+}
+export const GetAllEventsByCentral = async (central) => {
+    try {
+        const response = await axiosInstance.get(`/api/events/get-event-by-district/central`);
         return response.data;
     } catch (error) {
         return error.message;

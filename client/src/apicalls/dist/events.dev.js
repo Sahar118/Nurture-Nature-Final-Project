@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.saveEvent = exports.GetAllEventsByDistrict = exports.GetEventById = exports.deleteEvent = exports.updateEvent = exports.GetAllEvent = exports.AddEvent = void 0;
+exports.saveEvent = exports.GetAllEventsByCentral = exports.GetAllEventsByNorth = exports.GetAllEventsBySouthern = exports.GetEventById = exports.deleteEvent = exports.updateEvent = exports.GetAllEvent = exports.AddEvent = void 0;
 
 var _require = require("."),
     axiosInstance = _require.axiosInstance; //  add new event
@@ -157,15 +157,15 @@ var GetEventById = function GetEventById(id) {
 
 exports.GetEventById = GetEventById;
 
-var GetAllEventsByDistrict = function GetAllEventsByDistrict(district) {
+var GetAllEventsBySouthern = function GetAllEventsBySouthern(southern) {
   var response;
-  return regeneratorRuntime.async(function GetAllEventsByDistrict$(_context6) {
+  return regeneratorRuntime.async(function GetAllEventsBySouthern$(_context6) {
     while (1) {
       switch (_context6.prev = _context6.next) {
         case 0:
           _context6.prev = 0;
           _context6.next = 3;
-          return regeneratorRuntime.awrap(axiosInstance.get("/api/events/get-event-by-district/".concat(district)));
+          return regeneratorRuntime.awrap(axiosInstance.get("/api/events/get-event-by-district/southern"));
 
         case 3:
           response = _context6.sent;
@@ -184,17 +184,17 @@ var GetAllEventsByDistrict = function GetAllEventsByDistrict(district) {
   }, null, null, [[0, 7]]);
 };
 
-exports.GetAllEventsByDistrict = GetAllEventsByDistrict;
+exports.GetAllEventsBySouthern = GetAllEventsBySouthern;
 
-var saveEvent = function saveEvent(id) {
+var GetAllEventsByNorth = function GetAllEventsByNorth(north) {
   var response;
-  return regeneratorRuntime.async(function saveEvent$(_context7) {
+  return regeneratorRuntime.async(function GetAllEventsByNorth$(_context7) {
     while (1) {
       switch (_context7.prev = _context7.next) {
         case 0:
           _context7.prev = 0;
           _context7.next = 3;
-          return regeneratorRuntime.awrap(axiosInstance.post("/api/events/saved-event/".concat(id)));
+          return regeneratorRuntime.awrap(axiosInstance.get("/api/events/get-event-by-district/north"));
 
         case 3:
           response = _context7.sent;
@@ -208,6 +208,64 @@ var saveEvent = function saveEvent(id) {
         case 10:
         case "end":
           return _context7.stop();
+      }
+    }
+  }, null, null, [[0, 7]]);
+};
+
+exports.GetAllEventsByNorth = GetAllEventsByNorth;
+
+var GetAllEventsByCentral = function GetAllEventsByCentral(central) {
+  var response;
+  return regeneratorRuntime.async(function GetAllEventsByCentral$(_context8) {
+    while (1) {
+      switch (_context8.prev = _context8.next) {
+        case 0:
+          _context8.prev = 0;
+          _context8.next = 3;
+          return regeneratorRuntime.awrap(axiosInstance.get("/api/events/get-event-by-district/central"));
+
+        case 3:
+          response = _context8.sent;
+          return _context8.abrupt("return", response.data);
+
+        case 7:
+          _context8.prev = 7;
+          _context8.t0 = _context8["catch"](0);
+          return _context8.abrupt("return", _context8.t0.message);
+
+        case 10:
+        case "end":
+          return _context8.stop();
+      }
+    }
+  }, null, null, [[0, 7]]);
+};
+
+exports.GetAllEventsByCentral = GetAllEventsByCentral;
+
+var saveEvent = function saveEvent(id) {
+  var response;
+  return regeneratorRuntime.async(function saveEvent$(_context9) {
+    while (1) {
+      switch (_context9.prev = _context9.next) {
+        case 0:
+          _context9.prev = 0;
+          _context9.next = 3;
+          return regeneratorRuntime.awrap(axiosInstance.post("/api/events/saved-event/".concat(id)));
+
+        case 3:
+          response = _context9.sent;
+          return _context9.abrupt("return", response.data);
+
+        case 7:
+          _context9.prev = 7;
+          _context9.t0 = _context9["catch"](0);
+          return _context9.abrupt("return", _context9.t0.message);
+
+        case 10:
+        case "end":
+          return _context9.stop();
       }
     }
   }, null, null, [[0, 7]]);

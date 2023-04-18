@@ -5,8 +5,8 @@ const Navbar = () => {
     return (
         <>
             <div className='middle-navbar '>
-                <Link to='/login'>
-                    <h4> Login</h4>
+                <Link to='/'>
+                    <h4> Home</h4>
                 </Link>
                 <Link to='/news'>
                     <h4> News</h4>
@@ -15,7 +15,7 @@ const Navbar = () => {
                     <h4> Events</h4>
                 </Link>
                 <Link to='/report'>
-                    <h4> New Report</h4>
+                    <h4> Reports</h4>
                 </Link>
                 <Link to='/chat'>
                     <h4> Chat</h4>

@@ -93,7 +93,6 @@ const UsersList = ({ searchKey, socket }) => {
             )
         }
     }
-
     useEffect(() => {
         socket.on("receive-message", (message) => {
             // if the chat area opened is not equal to chat in message , then increase unread messages by 1 and update last message
@@ -124,6 +123,7 @@ const UsersList = ({ searchKey, socket }) => {
         });
         // eslint-disable-next-line
     }, []);
+
     return (
         <div className='users-list-container'>
             {getData()
@@ -151,16 +151,13 @@ const UsersList = ({ searchKey, socket }) => {
                                 <div className='column user-column'>
                                     <div className='row space-between' >
                                         <h4 className='user-obj-name'> {userObj.name} </h4>
-                                        <h5>
+                                        <h5 className='get-unread-message'>
                                             {getUnreadMessages(userObj)}
                                         </h5>
                                     </div>
                                     <div>
                                         <h5 className='get-last-message'> {getLastMsg(userObj)}</h5>
-
                                     </div>
-
-
                                 </div>
                             </div>
                             <div
@@ -175,7 +172,6 @@ const UsersList = ({ searchKey, socket }) => {
                                         </div>
                                     )}
                             </div>
-
                         </div>
                     )
                 })}
