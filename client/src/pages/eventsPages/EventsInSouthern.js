@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux'
 import { useNavigate, } from 'react-router-dom'
 import { HideLoading, ShowLoading } from '../../redux/loaderSlice'
 import { IoMdArrowRoundBack } from "react-icons/io";
+import { RxChevronDown } from "react-icons/rx";
 
 
 
@@ -59,6 +60,12 @@ const EventsInSouthern = () => {
                                         <h1 className='text-md'>{event.title}</h1>
                                         <br></br>
                                         <h3> {event.location}</h3>
+                                        <RxChevronDown className=' scroll f-page scroll__icon' />
+                                        <button className='more-info-btn pointer'
+                                            onClick={() => navigate(`/event/${event._id}`)}
+                                        >
+                                            for more information
+                                        </button>
                                     </div>
                                 </Col>
                             </>

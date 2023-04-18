@@ -55,7 +55,7 @@ const EventInCenteral = () => {
                                         />
                                         <h1 className='text-md'>{event.title}</h1>
                                         <h3> {event.location}</h3>
-                                        <RxChevronDown className=' scroll f-page scroll__icon' />
+                                        <RxChevronDown className=' scroll-c f-page scroll__icon' />
                                         <button className='more-info-btn pointer'
                                             onClick={() => navigate(`/event/${event._id}`)}
                                         >

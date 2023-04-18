@@ -55,14 +55,14 @@ const EventsForm = ({
                 setSelectEvent(null)
             }}
             footer={null}
-            width={900}
+            width={800}
         >
             <Form
                 layout='vertical'
                 onFinish={onFinish}
                 initialValues={selectEvent}
             >
-                <Row gutter={20}>
+                <Row gutter={16}>
                     <Col span={24}>
                         <Form.Item label="Event Name" name='title'>
                             <input type='text' />
@@ -73,18 +73,18 @@ const EventsForm = ({
                             <textarea type='text' />
                         </Form.Item>
                     </Col>
-                    <Col span={10}>
+                    <Col span={8}>
                         <Form.Item label="Event Location" name='location'>
                             <input type='text' />
                         </Form.Item>
                     </Col>
-                    <Col span={10}>
+                    <Col span={8}>
                         <Form.Item label="District" name='district'>
                             <input type='text' />
                         </Form.Item>
                     </Col>
 
-                    <Col span={4}>
+                    <Col span={8}>
                         <Form.Item label="Event Date" name='date'>
                             <input type='date' />
                         </Form.Item>
@@ -95,12 +95,12 @@ const EventsForm = ({
                             <input type="time" />
                         </Form.Item>
                     </Col>
-                    {/* 
+
                     <Col span={8}>
                         <Form.Item label="Event Duration" name='duration'>
                             <input type='number' />
                         </Form.Item>
-                    </Col> */}
+                    </Col>
                     <Col span={16}>
                         <Form.Item label="Poster URL" name='poster'>
                             <input type='text' />
