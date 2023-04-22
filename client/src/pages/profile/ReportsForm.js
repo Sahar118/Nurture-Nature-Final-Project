@@ -46,6 +46,7 @@ function ReportsForm({
 
     return (
         <Modal
+            className="modal"
             title={formType === "add" ? "Add Report" : "Edit Report"}
             open={showReportsFormModal}
             onCancel={() => {

@@ -4,7 +4,7 @@ import { BsSearchHeart } from "react-icons/bs";
 const UserSearch = ({ searchKey, setSearchKey }) => {
 
     return (
-        <div>
+        <div className='user-search-container'>
             <input
                 className='input-chat relative pointer'
                 type='text'

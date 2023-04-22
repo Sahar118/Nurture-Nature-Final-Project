@@ -1,3 +1,39 @@
+@media only screen and (max-width: 700px) and (min-width: 300px) {
+  .input-chat{
+    position: relative;
+    top: -5rem;
+    height: 8vh !important;
+    border-radius: 2rem;
+    border: 2px solid  #215732 !important;
+
+  }
+.chat-area-container{
+  margin-top: 15rem !important;
+  position: relative;
+  left:-89vw !important;
+  top: 20rem;
+  /* margin-right: 1rem; */
+  height: 60vh !important;
+  width:92vw !important;
+  border-radius: 1rem;
+
+}
+.send-icon{
+  position: relative;
+  top: -2.5rem !important;
+  left: 17rem;
+}
+
+
+.user-search-container{
+  width:90vw;
+  position: relative;
+  top: 5rem;
+}
+.search-icon-chat{
+ display: none;
+}
+}
 .input-chat{
   width: 25vw !important;
   height: 7vh;
@@ -5,6 +41,7 @@
   border: 2px solid  #215732 !important;
   padding-left: 20px !important;
 }
+
 
 .input-chat:focus {
   outline: none;

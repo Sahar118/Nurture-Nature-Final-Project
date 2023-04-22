@@ -1,3 +1,94 @@
+@media only screen and (max-width: 700px) and (min-width: 300px){
+    .home-page{
+        width: 100% !important;
+    background: url(../assest/backqurey.jpg) no-repeat center center/cover !important;
+
+    }
+    .airplane{
+        width: 30vw !important;
+        top: 7vh !important;
+        animation: airplane  8s infinite ease-in-out !important;
+    }
+    @keyframes airplane{
+        0%{
+            top: -5vh;
+            left: 1vw;
+        }
+        100%{
+            top:-5vh;
+            left:65vw;
+        }
+        } 
+    .cloud1, 
+    .cloud2,
+    .cloud4,
+    .cloud5,
+    .cloud6,
+    .cloud8,
+    .cloud9,
+    .cloud11,
+    .cloud12
+    {
+    display: none !important;
+    }
+
+    .birds{
+        height: 20vh !important;
+        width: 50vw;
+        top: 3vh !important;
+    }
+    
+    .kid1{
+        height: 10vh !important;
+        /* top: 60vh !important; */
+        left:10vw !important;
+        animation: kids .75s infinite ease-in-out !important;
+    }
+    
+    
+    .kid2{
+        height: 9vh !important;
+        /* top: 60vh !important; */
+        left:28vw !important;
+        animation: kids 2s infinite ease-in-out !important;
+    }
+    
+    .kid3{
+        height: 10vh !important;
+        left:46vw !important;
+        /* top: 60vh !important; */
+        animation: kids 1.75s infinite ease-in-out !important;
+    }
+    @keyframes kids{
+        0%{
+            top: 55vh;
+        }
+        100%{
+            top: 60vh;
+        }
+
+        } 
+    .car{
+        height: 9vh !important;
+        left: 1vw;
+        top: 42vh !important;
+        animation: car 6s infinite ease-in-out !important;
+    }
+
+    @keyframes car{
+        0%{
+            top: 35vh;
+            left: -3vw;
+        
+        }
+        100%{
+            top: 35vh;
+            left:  73vw;
+        }
+        } 
+}
+
+
 .home-page{
     height: 90vh;
     width: 100%;
@@ -22,6 +113,8 @@
         left: 82vw;
     }
     } 
+
+   
 .cloud1{
     position: absolute;
     left: 10px;
@@ -48,11 +141,7 @@
     left: 13vw;
     }
     } 
-/* .cloud3{
-    position: absolute;
-    left: 16vw;
-    opacity: 0.5;
-} */
+
 .cloud4{
     position: absolute;
     left: 25vw;
@@ -99,12 +188,7 @@
         left: 50vw;
     }
     }
-/* .cloud7{
-    position: absolute;
-    left: 50vw;
-    top: 20vh;
-    opacity: 0.5;
-} */
+
 .cloud8{
     position: absolute;
     left: 57vw;
@@ -158,12 +242,6 @@
         left: 70vw;
     }
     } 
-/* .cloud13{
-    position: absolute;
-    left: 80vw;
-    top: 11vh;
-    opacity: 0.5;
-} */
 
 .birds{
     position: absolute;
@@ -195,7 +273,6 @@
     left: -5vw;
     top: 33vh;
     z-index: 9999;
-
     transform:scaleX(100%);
     animation: animate1 10s infinite ease-in-out;
 }

@@ -32,7 +32,7 @@ const Chat = () => {
     }, [user])
     return (
         <div className='flex'>
-            <div className='w-400'>
+            <div className='w-400 flex-qu-chat'>
                 {/* user search, user list */}
                 <UserSearch
                     searchKey={searchKey}

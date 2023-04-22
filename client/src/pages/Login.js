@@ -7,10 +7,6 @@ import { LoginUser } from "../apicalls/users.js";
 import { useDispatch } from "react-redux";
 import { HideLoading, ShowLoading } from "../redux/loaderSlice.js";
 import DesignLogin from "../components/DesignLogin.js";
-// import { RegisterUser } from "../../apicalls/users";
-// import { useNavigate } from "react-router-dom";
-// import { useDispatch } from "react-redux";
-// import { HideLoading, ShowLoading } from "../../redux/loadersSlice";
 
 function Login() {
     const navigate = useNavigate();
@@ -24,7 +20,6 @@ function Login() {
                 message.success(response.success)
                 localStorage.setItem("token", response.data)
                 window.location.href = "/"
-                // navigate("/")
             } else {
                 message.error(response.message)
             }

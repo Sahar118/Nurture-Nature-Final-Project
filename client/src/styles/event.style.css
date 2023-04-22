@@ -1,3 +1,29 @@
+@media only screen and (max-width: 700px) and (min-width: 300px) {
+
+  .top-container{
+    position: relative;
+    top: 3vh;
+  }
+  .title-event{
+    font-size: 27px;
+  }
+  .event-container{
+    width:35vw !important;
+    margin: 6rem !important;
+    margin-left: 3rem !important;
+    height: 60vh;
+  }
+  .more-info-btn{
+    width: 90% !important;
+    height: 4rem !important;
+    font-size: 15px;
+  }
+  .text-md{
+
+    font-size: 20px !important;
+  }
+}
+
 .event-container{
 height: 50vh;
 width: 50vw;
@@ -55,7 +81,6 @@ align-items: center;
     display: flex;
     justify-content: center;
     align-items: center;
-
   }
   .event-container{
     width:25vw;

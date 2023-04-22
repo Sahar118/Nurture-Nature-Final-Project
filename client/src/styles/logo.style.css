@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
 /* Add fallback fonts */
-
+@media only screen and (max-width: 700px) and (min-width: 300px){
+  .contents {
+    position: absolute;
+    top: 9% !important;
+    left: 170px !important;
+  }
+}
 body {
     width: 100%;
     height: 100%;
@@ -13,9 +19,7 @@ body {
     top: 5%;
     left: 13%;
     transform: translate(-50%, -50%);
-    /* height: 300px; */
     overflow: hidden;
-   
     width: 300px;
     font-family: 'Lato', sans-serif !important;
     font-size: 30px;

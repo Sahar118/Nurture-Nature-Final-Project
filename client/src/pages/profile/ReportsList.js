@@ -64,11 +64,11 @@ function ReportsList() {
             dataIndex: "location",
             key: "location",
         },
-        {
-            title: "Description",
-            dataIndex: "description",
-            key: "description",
-        },
+        // {
+        //     title: "Description",
+        //     dataIndex: "description",
+        //     key: "description",
+        // },
         {
             title: "Status",
             dataIndex: "isActive",
@@ -115,7 +115,7 @@ function ReportsList() {
         //eslint-disable-next-line
     }, []);
     return (
-        <div>
+        <div className=" report-list-container">
             <div className="flex justify-end mb-1">
                 <Button
                     variant="outlined"
@@ -127,7 +127,7 @@ function ReportsList() {
                 />
             </div>
 
-            <Table columns={columns} dataSource={reports} rowKey="_id" />
+            <Table columns={columns} dataSource={reports} rowKey="_id" className="table-report" />
 
             {showReportsFormModal && (
                 <ReportsForm

@@ -1,10 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap');
-@media (max-width:600px) {
-  .box-login{
-    height: 90vh;
-    width: 90vw;
-  }
-}
+
 
   *{
   font-family: 'Montserrat', sans-serif !important;
@@ -13,6 +8,143 @@
   padding: 0;
   }
   
+  @media only screen and (max-width: 700px) and (min-width: 300px) {
+
+    .p{
+      height: 60vh !important;
+    }
+    .box-login{
+      height: 60vh !important;
+      width: 95% !important;
+      position: relative;
+      top: 10rem;
+    }
+  
+    .title-login{
+      font-size: 1.75rem !important;
+      text-align: center;
+    }
+    .login-height{
+      width: 95%;
+      height: 60vh;
+      position: relative;
+      top: 10rem;
+    }
+    .input-login{
+      width: 100% !important;
+      border: 1px solid var(--color-primary) ;
+    }
+    .design-login-container{
+      top: 5px !important;
+      /* background-color: var(--color-primary); */
+    }
+    .flower1{
+      height: 18vh !important;
+      width: 40vw !important;
+      top: -3rem  !important;
+      right: 10rem !important;
+    }
+    .flower5{
+      height: 15vh !important;
+      top: -8rem !important;
+      transform: rotate(-60deg) !important;
+
+    }
+    .bird{
+      display: none;
+    }
+
+    .box-register{
+      height: 70vh !important;
+      width: 95% !important;
+      position: relative;
+      top: 10rem;
+    }
+    .login-padding-top{
+      top: 170px !important;
+      right: 64px !important;
+      /* position:  relative !important; */
+    }
+
+    .israelMap{
+      position: relative;
+      right:-1vw !important;
+      top: -8vh;
+      height: 75vh !important;
+      width:250% !important;
+    }
+    .north-container,
+.central-container,
+.southern-container
+{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  text-align: center;
+  font-size: 20px !important;
+}
+.central-container{
+padding-inline: 5vw;
+top: 45vh !important;
+left: 35vw !important;
+}
+.north-container{
+  top: 30vh !important;
+  left: 58vw !important;
+}
+.southern-container{
+  top: 70vh !important;
+  left: 40vw !important;
+}
+
+.event-title-id{
+  font-size: 1.5rem !important;
+  margin-left: 1rem !important;
+  }
+  .box{
+    height:70vh;
+    width: 90% !important;
+    margin: auto;
+    text-align: center;
+    line-height: 40px;
+    display: flex;
+    flex-direction: column !important;
+    justify-content: flex-start;
+  }
+  .row{
+    flex-direction: column !important;
+  }
+  .img-box{
+    width:80vw !important;
+    height: 40% !important;
+  }
+  .description-container{
+    width: 80vw !important;
+  }
+  .p-description{
+    font-size: 25px !important;
+    line-height: 3.25rem;
+  }
+  .modal{
+    position: relative;
+    top: 10rem;
+  }
+  .button-1{
+    width: 20vw !important;
+    height: 6vh !important;
+    position: relative;
+    top: 2rem;
+    background-color: #215732;
+    font-size: 15px;
+    color: white;
+    font-weight: 600 !important;
+  }
+ Table{
+  margin-top: 5rem;
+ }
+
+  }
+
   .p{
     height: 100vh;
     width: 100%;
@@ -598,4 +730,5 @@ z-index: 10;
   transform-origin: 1px;
   transition: all 0.3s linear;
 }
+
 
