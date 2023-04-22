@@ -13,10 +13,11 @@ import { ClearChatMessages } from '../../apicalls/chats';
 import store from '../../redux/store'
 
 const ChatArea = ({ socket }) => {
+    const { selectedChat, user, allChats } = useSelector((state) => state.users)
     const dispatch = useDispatch()
     const [newMessage, setNewMessage] = useState("")
     const [messages, setMessages] = useState([])
-    const { selectedChat, user, allChats } = useSelector((state) => state.users)
+
     const recipientUser = selectedChat.members.find(
         (mem) => mem._id !== user._id
     )
@@ -44,7 +45,7 @@ const ChatArea = ({ socket }) => {
             toast.error(error.message)
         }
     }
-    const getMessages = async () => {
+    const getAMessages = async () => {
         try {
             dispatch(ShowLoading())
             const response = await GetMessages(selectedChat._id);
@@ -81,7 +82,7 @@ const ChatArea = ({ socket }) => {
         }
     }
     useEffect(() => {
-        getMessages();
+        getAMessages();
         if (selectedChat?.lastMessage?.sender !== user._id) {
             clearUnreadMessages();
         }
@@ -151,16 +152,17 @@ const ChatArea = ({ socket }) => {
             <div className='chat-message-area-container'
                 id='messages'>
                 <div className='column'>
-                    {messages.map((message) => {
+                    {messages.map((message, i) => {
                         const isCurrentUserIsSender = message.sender === user._id;
                         return (
 
-                            <div className={`flex ${isCurrentUserIsSender && 'justify-end'}`}>
+                            <div key={i} className={`flex ${isCurrentUserIsSender ? 'justify-end' : 'justify-start'}`}>
                                 <div className='column'>
                                     <h3
                                         className={`${isCurrentUserIsSender ? "bg-sender" : "bg-recipient"
                                             }`}>{message.text}</h3>
-                                    <h5> {moment(message.createdAt).format("hh:mm A")}</h5>   </div>
+                                    <h5> {moment(message.createdAt).format("hh:mm A")}</h5>
+                                </div>
                                 {isCurrentUserIsSender && <BsCheckAll className={`${message.read ? "text-green" : "text-brown"}`} />}
                             </div>
                         )

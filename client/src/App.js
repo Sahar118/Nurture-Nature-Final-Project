@@ -5,11 +5,9 @@ import {
   Home,
   Chat,
   Events,
-  News,
   Admin,
   Profile,
   AboutTheEvent,
-  SavedEvents,
   GetEventByDistrict,
   EventsInSouthern,
   EventInCenteral,
@@ -37,11 +35,9 @@ function App() {
           <Route path='/events' element={<ProtectsRoute><Events /> </ProtectsRoute>} />
           <Route path='/event/:id' element={<ProtectsRoute><AboutTheEvent /> </ProtectsRoute>} />
           <Route path='/event/by-district' element={<ProtectsRoute><GetEventByDistrict /> </ProtectsRoute>} />
-          <Route path='/event/saved-event' element={<ProtectsRoute><SavedEvents /> </ProtectsRoute>} />
           <Route path='/events/north' element={<ProtectsRoute><EventsInNorth /> </ProtectsRoute>} />
           <Route path='/events/central' element={<ProtectsRoute><EventInCenteral /> </ProtectsRoute>} />
           <Route path='/events/southern' element={<ProtectsRoute><EventsInSouthern /> </ProtectsRoute>} />
-          <Route path='/news' element={<ProtectsRoute><News /> </ProtectsRoute>} />
           <Route path='/admin' element={<ProtectsRoute> <Admin /></ProtectsRoute>} />
           <Route path='/profile' element={<ProtectsRoute> <Profile /></ProtectsRoute>} />
           <Route path='/login' element={<Login />} />

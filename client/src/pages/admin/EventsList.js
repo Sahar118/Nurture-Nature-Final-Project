@@ -54,23 +54,28 @@ const EventsList = () => {
     const columns = [
         {
             title: "Name",
-            dataIndex: 'title'
+            dataIndex: 'title',
+            key: 'title'
         },
         {
             title: "description",
-            dataIndex: 'description'
+            dataIndex: 'description',
+            key: 'description'
         },
         {
             title: "Location",
-            dataIndex: 'location'
+            dataIndex: 'location',
+            key: 'location'
         },
         {
             title: "District",
-            dataIndex: 'district'
+            dataIndex: 'district',
+            key: 'district'
         },
         {
             title: "Date",
             dataIndex: 'date',
+            key: 'date',
             render: (text, record) => {
                 return moment(record.date).format("YYYY-MM-DD")
             }
@@ -78,6 +83,7 @@ const EventsList = () => {
         {
             title: "Time",
             dataIndex: 'time',
+            key: 'time',
             render: (text, record) => {
                 return moment(record.time).format("HH:MM")
             }
@@ -85,11 +91,13 @@ const EventsList = () => {
 
         {
             title: "Duration (h)",
-            dataIndex: 'duration'
+            dataIndex: 'duration',
+            key: 'duration'
         },
         {
             title: 'Poster',
             dataIndex: 'poster',
+            key: 'poster',
             render: (text, record) => {
                 return (
                     <img
@@ -105,6 +113,7 @@ const EventsList = () => {
         {
             title: "Action",
             dataIndex: "action",
+            key: "action",
             render: (text, record) => {
                 return (
                     <div className='actions-container'>

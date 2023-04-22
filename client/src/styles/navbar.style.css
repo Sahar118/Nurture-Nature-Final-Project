@@ -18,7 +18,7 @@ font-weight: 900;
 width: 500px;
 color: #215732 !important;
 display: flex;
-justify-content: space-between;
+justify-content: space-evenly;
 font-weight: 900;
 font-size: 18px;
 margin-left: 8rem;

@@ -8,9 +8,6 @@ export default function Navbar() {
                 <Link to='/'>
                     <h4> Home</h4>
                 </Link>
-                <Link to='/news'>
-                    <h4> News</h4>
-                </Link>
                 <Link to='/events'>
                     <h4> Events</h4>
                 </Link>

@@ -21,12 +21,6 @@ Object.defineProperty(exports, "Home", {
     return _Home["default"];
   }
 });
-Object.defineProperty(exports, "News", {
-  enumerable: true,
-  get: function get() {
-    return _News["default"];
-  }
-});
 Object.defineProperty(exports, "Events", {
   enumerable: true,
   get: function get() {
@@ -55,12 +49,6 @@ Object.defineProperty(exports, "AboutTheEvent", {
   enumerable: true,
   get: function get() {
     return _AboutTheEvent["default"];
-  }
-});
-Object.defineProperty(exports, "SavedEvents", {
-  enumerable: true,
-  get: function get() {
-    return _SavedEvents["default"];
   }
 });
 Object.defineProperty(exports, "GetEventByDistrict", {
@@ -94,8 +82,6 @@ var _Register = _interopRequireDefault(require("./Register"));
 
 var _Home = _interopRequireDefault(require("./Home"));
 
-var _News = _interopRequireDefault(require("./News"));
-
 var _Events = _interopRequireDefault(require("./Events"));
 
 var _Chat = _interopRequireDefault(require("./Chat"));
@@ -105,8 +91,6 @@ var _Admin = _interopRequireDefault(require("./admin/Admin"));
 var _Profile = _interopRequireDefault(require("./profile/Profile"));
 
 var _AboutTheEvent = _interopRequireDefault(require("./AboutTheEvent"));
-
-var _SavedEvents = _interopRequireDefault(require("./SavedEvents"));
 
 var _GetEventByDistrict = _interopRequireDefault(require("./GetEventByDistrict"));
 

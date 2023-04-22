@@ -48,8 +48,7 @@ const EventsInSouthern = () => {
                     {events.map((event) => {
                         return (
                             <>
-
-                                <Col span={8}>
+                                <Col span={8} key={event.uniqueId}>
                                     <div className='event-container pointer box-shadow '
                                         onClick={() => navigate(`/event/${event._id}`)}
                                     >

@@ -61,8 +61,9 @@ const EventsForm = ({
                 layout='vertical'
                 onFinish={onFinish}
                 initialValues={selectEvent}
+                key='admin-events-form'
             >
-                <Row gutter={16}>
+                <Row gutter={16} >
                     <Col span={24}>
                         <Form.Item label="Event Name" name='title'>
                             <input type='text' />

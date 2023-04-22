@@ -15,7 +15,7 @@ const UsersList = ({ searchKey, socket }) => {
     const { allUsers, allChats, user, selectedChat } = useSelector((state) => state.users);
     const dispatch = useDispatch();
 
-    const createNewChat = async (receipentUserId) => {
+    const createANewChat = async (receipentUserId) => {
         try {
             dispatch(ShowLoading());
             const response = await CreateNewChat([user._id, receipentUserId]);
@@ -161,7 +161,7 @@ const UsersList = ({ searchKey, socket }) => {
                                 </div>
                             </div>
                             <div
-                                onClick={() => createNewChat(userObj._id)}
+                                onClick={() => createANewChat(userObj._id)}
                             >
                                 {!allChats.find((chat) => chat.members.map((mem) => mem._id).includes(userObj._id))
                                     && (

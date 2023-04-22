@@ -1,17 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { message, Table } from "antd";
+import { useDispatch, useSelector } from "react-redux";
+import { DeleteReports, GetAllReportsByOwner } from "../../apicalls/Reports.js";
+import { HideLoading, ShowLoading } from "../../redux/loaderSlice";
 import Button from "../../components/Button";
 import ReportsForm from "./ReportsForm";
-import {
-    DeleteReports,
-    GetAllReportsByOwner,
-} from "../../apicalls/Reports.js";
-import { useDispatch, useSelector } from "react-redux";
-// import { HideLoading, ShowLoading } from "../../redux/loadersSlice";
-import { message, Table } from "antd";
-import { HideLoading, ShowLoading } from "../../redux/loaderSlice";
-import { GrEdit } from "react-icons/gr";
 import { RiDeleteBin6Line } from "react-icons/ri";
-// import Shows from "./Shows";
+import { GrEdit } from "react-icons/gr";
 
 function ReportsList() {
     const { user } = useSelector((state) => state.users);
@@ -62,18 +57,22 @@ function ReportsList() {
         {
             title: "Name",
             dataIndex: "name",
+            key: "name",
         },
         {
             title: "Location",
             dataIndex: "location",
+            key: "location",
         },
         {
             title: "Description",
             dataIndex: "description",
+            key: "description",
         },
         {
             title: "Status",
             dataIndex: "isActive",
+            key: "status",
             render: (text, record) => {
                 if (text) {
                     return "Approved";
@@ -85,36 +84,27 @@ function ReportsList() {
         {
             title: "Action",
             dataIndex: "action",
+            key: "action",
             render: (text, record) => {
                 return (
-                    <div className="flex gap-1 items-center">
-                        <RiDeleteBin6Line
-                            className="pointer"
-                            onClick={() => {
-                                handleDelete(record._id);
-                            }}
-                        ></RiDeleteBin6Line>
-                        <GrEdit
-                            className="pointer"
-                            onClick={() => {
-                                setFormType("edit");
-                                setSelectedReports(record);
-                                setShowReportsFormModal(true);
-                            }}
-                        ></GrEdit>
-
-                        {record.isActive && (
-                            <span
-                                className="underline"
+                    <>
+                        <div className="flex gap-1 items-center">
+                            <RiDeleteBin6Line
+                                className="pointer"
                                 onClick={() => {
-                                    setSelectedReports(record);
-                                    // setOpenShowsModal(true);
+                                    handleDelete(record._id);
                                 }}
-                            >
-                                Shows
-                            </span>
-                        )}
-                    </div>
+                            />
+                            <GrEdit
+                                className="pointer"
+                                onClick={() => {
+                                    setFormType("edit");
+                                    setSelectedReports(record);
+                                    setShowReportsFormModal(true);
+                                }}
+                            />
+                        </div>
+                    </>
                 );
             },
         },
@@ -137,7 +127,7 @@ function ReportsList() {
                 />
             </div>
 
-            <Table columns={columns} dataSource={reports} />
+            <Table columns={columns} dataSource={reports} rowKey="_id" />
 
             {showReportsFormModal && (
                 <ReportsForm
