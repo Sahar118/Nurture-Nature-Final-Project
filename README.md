@@ -55,7 +55,7 @@ The letters are switching. 🤭
 ![plot](./client/src/assest/README/logo1.jpg)  
 ![plot](./client/src/assest/README/logo2.jpg)  
 
--Of course, Its responsive! 🙂
+- Of course, Its responsive! 🙂
 ![plot](./client/src/assest/README/responsive1.jpg)  
 ![plot](./client/src/assest/README/responsive2.jpg)  
 ![plot](./client/src/assest/README/responsive3.jpg)  
