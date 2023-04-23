@@ -10,16 +10,16 @@
 
 # Here's how the app works:
 
-- ### Home Page :
+- ## Home Page :
 ![plot](./client/src/assest/README/home-page.jpg) 
 
-- ### Register page:
+- ## Register page:
 ![plot](./client/src/assest/README/register.jpg) 
 
-- ### Login page:
+- ## Login page:
 ![plot](./client/src/assest/README/login.jpg) 
 
-- ### Events page:
+- ## Events page:
 #### Here you can search for events by region in Israel.
 #### You can click on the desired region and a list of upcoming events will appear.
 ![plot](./client/src/assest/README/events.jpg) 
@@ -30,7 +30,7 @@
 ![plot](./client/src/assest/README/event-admin.jpg) 
 ![plot](./client/src/assest/README/modal.jpg) 
 
-- ### Reports page:
+- ## Reports page:
 #### Come across a neglected area? Filled with litters?Report it to us!
 #### We will organize a cleanup day and go clean it up! And it will be thanks to you.
 #### The user can add a new report by clicking on the "Add new report" button.
@@ -47,18 +47,18 @@
 
 ![plot](./client/src/assest/README/admin-reports.jpg)  
 
-- Chat page
+- ## Chat page
 #### You may wonder why there's a chat feature. I strongly believe that in order to encourage people to participate in the volunteer activities we organize, we need to create a social connection as well. People should be able to talk to each other, and through social connections, they will want to come, volunteer, meet and get to know each other.
 ![plot](./client/src/assest/README/chat1.jpg)  
 ![plot](./client/src/assest/README/chat2.jpg)  
 
 
-- ### I have to admit that I'm very excited about the logo and the loading page!🙂
+- ## I have to admit that I'm very excited about the logo and the loading page!🙂
  #### The letters are switching. 🤭
 ![plot](./client/src/assest/README/logo1.jpg)  
 ![plot](./client/src/assest/README/logo2.jpg)  
 
-- ### Of course, Its responsive! 🙂
+- ## Of course, Its responsive! 🙂
 ![plot](./client/src/assest/README/responsive1.jpg)  
 ![plot](./client/src/assest/README/responsive2.jpg)  
 ![plot](./client/src/assest/README/responsive3.jpg)  
