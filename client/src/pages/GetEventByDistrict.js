@@ -1,13 +1,13 @@
 import React from 'react'
 import israelMap from '../assest/israekMap.png'
 import { GoLocation } from 'react-icons/go'
-import PageTitle from '../components/PageTitle'
+
 import { Link } from 'react-router-dom'
 
 const GetEventByDistrict = () => {
     return (
         <>
-            <PageTitle title='Choose a location' />
+
             <div className='district-container'>
                 <img className='israelMap' src={israelMap} alt='israel map' />
                 < Link to='north'>

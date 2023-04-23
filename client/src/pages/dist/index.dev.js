@@ -75,6 +75,12 @@ Object.defineProperty(exports, "EventsInSouthern", {
     return _EventsInSouthern["default"];
   }
 });
+Object.defineProperty(exports, "ReportsPage", {
+  enumerable: true,
+  get: function get() {
+    return _ReportsPage["default"];
+  }
+});
 
 var _Login = _interopRequireDefault(require("./Login"));
 
@@ -99,5 +105,7 @@ var _EventInCenteral = _interopRequireDefault(require("./eventsPages/EventInCent
 var _EventsInNorth = _interopRequireDefault(require("./eventsPages/EventsInNorth"));
 
 var _EventsInSouthern = _interopRequireDefault(require("./eventsPages/EventsInSouthern"));
+
+var _ReportsPage = _interopRequireDefault(require("./ReportsPage"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }

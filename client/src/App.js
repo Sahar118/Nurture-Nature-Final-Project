@@ -11,11 +11,11 @@ import {
   GetEventByDistrict,
   EventsInSouthern,
   EventInCenteral,
-  EventsInNorth
+  EventsInNorth,
+  ReportsPage
 } from './pages/index.js'
 import ProtectsRoute from './components/ProtectsRoute.js';
 import { useSelector } from 'react-redux';
-import ReportsList from './pages/profile/ReportsList.js';
 import LoadingLogo from './components/LoadingLogo.js';
 
 function App() {
@@ -30,7 +30,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<ProtectsRoute> <Home /></ProtectsRoute>} />
-          <Route path='/report' element={<ProtectsRoute><ReportsList /> </ProtectsRoute>} />
+          <Route path='/report' element={<ProtectsRoute><ReportsPage /> </ProtectsRoute>} />
           <Route path='/chat' element={<ProtectsRoute><Chat /> </ProtectsRoute>} />
           <Route path='/events' element={<ProtectsRoute><Events /> </ProtectsRoute>} />
           <Route path='/event/:id' element={<ProtectsRoute><AboutTheEvent /> </ProtectsRoute>} />

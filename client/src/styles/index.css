@@ -68,8 +68,8 @@
 
     .israelMap{
       position: relative;
-      right:-1vw !important;
-      top: -8vh;
+      right:2vw !important;
+      top: 22vh !important;
       height: 75vh !important;
       width:250% !important;
     }
@@ -85,15 +85,15 @@
 }
 .central-container{
 padding-inline: 5vw;
-top: 45vh !important;
+top: 75vh !important;
 left: 35vw !important;
 }
 .north-container{
-  top: 30vh !important;
+  top: 60vh !important;
   left: 58vw !important;
 }
 .southern-container{
-  top: 70vh !important;
+  top: 90vh !important;
   left: 40vw !important;
 }
 
@@ -558,8 +558,27 @@ textarea{
 }
 
 .title-design{
+
   text-align: center;
+  font-size: 250%;
+  font-weight: 800;
+  margin-top: 1%;
+  font-family: 'Lilita One', cursive;
+  background: linear-gradient(to right, rgb(5, 107, 5) 0%,rgb(247, 64, 64) 20%,  #215732 61%), linear-gradient( brown 52%, 60%,rgb(5, 107, 5) 61%); /* you can change the colors based on your preference */
+  background-clip: text; 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: wave 2000ms ease alternate infinite;
+  transition: all 0.4s ease;
 }
+@keyframes wave {
+  0% {
+  background-position: 0 0;
+  }
+  100% {
+  background-position: 50vw 10px;
+}}
+
 .box{
   height:70vh;
   width: 70%;
@@ -692,20 +711,20 @@ Form{
 .central-container{
 padding-inline: 5vw;
 top: 38vh;
-left: 12vw;
+left: 18.5vw;
 }
 .north-container{
   top: 22vh;
-  left: 22vw;
+  left: 30vw;
 }
 .southern-container{
   top: 75vh;
-  left: 16vw;
+  left: 22vw;
 }
 
 .israelMap{
   position: relative;
-  right: 30vw;
+  right: 10vw;
   top: -8vh;
   height: 90vh;
   width: 70vw;
@@ -729,6 +748,10 @@ z-index: 10;
   background-color: #215732;
   transform-origin: 1px;
   transition: all 0.3s linear;
+}
+
+.description-report-page{
+  line-height: 2.5rem;
 }
 
 

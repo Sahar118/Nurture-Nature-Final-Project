@@ -10,6 +10,7 @@ import GetEventByDistrict from "./GetEventByDistrict";
 import EventInCenteral from "./eventsPages/EventInCenteral";
 import EventsInNorth from "./eventsPages/EventsInNorth";
 import EventsInSouthern from "./eventsPages/EventsInSouthern";
+import ReportsPage from "./ReportsPage";
 
 export {
     Login,
@@ -23,5 +24,6 @@ export {
     GetEventByDistrict,
     EventsInSouthern,
     EventInCenteral,
-    EventsInNorth
+    EventsInNorth,
+    ReportsPage
 }

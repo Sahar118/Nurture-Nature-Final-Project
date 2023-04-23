@@ -22,6 +22,16 @@
 
     font-size: 20px !important;
   }
+  .events-page-container{
+    display: flex;
+   flex-direction: column !important;
+  }
+  .event-page-description{
+
+    right: -1rem !important;
+    top: -50rem !important;
+  }
+  
 }
 
 .event-container{
@@ -138,4 +148,28 @@ align-items: center;
 }
 .flex-start{
   justify-content: flex-start;
+}
+
+
+.events-page-container{
+  display: flex;
+ flex-direction: row;
+}
+
+.event-page-description{
+  line-height: 3rem;
+  position: relative;
+  right: 12rem;
+  top: 4rem;
+}
+
+.green-1{
+  color: #143a20;
+}
+
+.green-2{
+  color:#215732;
+}
+.brown{
+  color: brown;
 }
